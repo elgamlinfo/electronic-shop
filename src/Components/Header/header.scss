@@ -1,0 +1,42 @@
+@import '../sass/variables';
+
+
+.header{
+    margin: 40px 0px;
+    .container{
+        .swiper-container {
+            height: 400px;
+            border-radius: 15px;
+            position: relative;
+            .swiper-pagination {
+                position: absolute;
+                top: 15px;
+                left: 98%;
+                bottom: 0;
+                width: 20px;
+                .swiper-pagination-bullet {
+                    display: block;
+                    background-color: #2D2D2D;
+                    opacity: 1;
+                    width: 10px;
+                    height: 10px;
+                    margin: 8px 0px;
+                    &.swiper-pagination-bullet-active{
+                        background-color: #fff;
+                    }
+                }
+            } 
+            .swiper-wrapper {
+                .swiper-slide {
+                    height: 100%;
+                    background-image: url('../../images/slider.png');
+                    background-size:cover;
+                    display: flex;
+                    justify-content: left;
+                    align-items: center;
+                    padding-left: 80px;
+                }
+            }
+        }
+    }
+}

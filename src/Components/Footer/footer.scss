@@ -1,0 +1,55 @@
+@import '../sass/variables';
+
+.footer {
+    background-color: #000;
+    .round-shape {
+        background: #fff;
+        border-radius: 0px 0px 80px 80px;
+        width: 100%;
+        height:100px;
+    }
+    .footer-content {
+        width: 70%;
+        margin: 80px auto;
+        .services{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .serv-card{
+                color: $yel-color;
+                width: 120px;
+                height: 130px;
+                border-radius: 15px;
+                background: $base-color;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                span{
+                    display: block;
+                    width: 100%;
+                    font-size: 40px;
+                    text-align: center;
+                }
+                p {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+    .foot{
+        color:#949494;
+        width: 90%;
+        padding: 20px;
+        margin: 20px auto 0px auto;
+        border-radius: 30px 30px 0px 0px;
+        background: $base-color;
+        font-size: 12px;
+        span{
+            color: rgb(253, 36, 36);
+        }
+    }
+}

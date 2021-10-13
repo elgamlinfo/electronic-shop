@@ -1,0 +1,46 @@
+@import '../sass/variables';
+
+
+.container{
+    .ads {
+        margin: 80px auto;
+        width: 100%;
+        height: 400px;
+        background-image: url('../../images/ads.png');
+        background-size: cover;  
+        border-radius: 15px;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        padding-left: 60px;
+        .ads-info  {
+            .product-name {
+                color:$base-color;
+                font-weight: bold;
+                font-size:60px;
+            }
+            p {
+                color: #878D92;
+                font-weight: bold;
+                line-height: 1.6;
+            }
+            .read-more {
+                background-color: $base-color;
+                color: #fff;
+                border: none;
+                outline: none;
+                padding: 5px 10px;
+                border-radius: 5px;
+                width: 150px;
+                margin-top: 15px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+                span:last-of-type {
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+}

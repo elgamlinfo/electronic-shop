@@ -1,0 +1,11 @@
+@import "../sass/variables";
+.category {
+    margin: 50px 0px;
+    .container {
+        .cards-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}

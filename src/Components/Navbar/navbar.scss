@@ -1,0 +1,66 @@
+@import '../sass/variables';
+.navbar {
+    padding: 10px 0px;
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+        .logo {
+            color: $base-color;
+            width: 20%;
+            font-size: 22px;
+            font-weight: 400;
+            text-transform: capitalize;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            .search {
+                width: 300px;
+                height: 30px;
+                border: 1.5px solid $base-color;
+                border-radius: 8px;
+                padding-left: 10px;
+                font-size: 14px;
+                color: $base-color;
+            }
+            .search-btn {
+                position: absolute;
+                right: -9px;
+                top: 18%;
+                background: none;
+                border: none;
+                outline: none;
+                margin: 0px 15px;
+                font-size: 18px;
+                color: $base-color;
+                cursor: pointer;
+            }
+        }
+        .options {
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            width: 20%;
+            button {
+                background: none;
+                border: none;
+                outline: none;
+                margin: 0px 15px;
+                font-size: 24px;
+                color: $base-color;
+                cursor: pointer;
+            }
+            img{
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-left: 15px;
+            }
+        }
+    }
+}

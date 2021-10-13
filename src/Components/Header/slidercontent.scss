@@ -1,0 +1,36 @@
+@import '../sass/variables';
+.content {
+    .model {
+        color: #C1C4C5;
+        text-transform: capitalize;
+        font-size: 40px;
+    }
+    h2{
+        color: #fff;
+        font-size: 60px;
+        text-transform: capitalize;
+    }
+    .book-now {
+        color: $purp-color;
+        text-transform: capitalize;
+        font-size:28px;
+        font-weight: 300;
+    }
+    .read-more {
+        background-color: $yel-color;
+        color: #fff;
+        border: none;
+        outline: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        width: 150px;
+        margin-top: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        span:last-of-type {
+            font-size: 22px;
+        }
+    }
+}
