@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import Product from '../Helpers/Product';
 import Title from '../Helpers/SectionTitle';
+import './showproducts.scss'
 // import "swiper/css/pagination"
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
@@ -33,6 +34,24 @@ const ShowProducts = (props) => {
                     spaceBetween={40}
                     freeMode={true} 
                     autoplay={{"delay": 1500, "disableOnInteraction": false }}
+                    breakpoints={{
+                        "200": {
+                            "slidesPerView": 1,
+                            "spaceBetween": 0
+                            },
+                        "640": {
+                            "slidesPerView": 2,
+                            "spaceBetween": 20
+                        },
+                        "768": {
+                            "slidesPerView": 4,
+                            "spaceBetween": 40
+                        },
+                        "1024": {
+                            "slidesPerView": 4,
+                            "spaceBetween": 40
+                        }
+                    }}
                 >
                     <SwiperSlide>
                         <Product />

@@ -15,6 +15,9 @@
         background-color: $yel-color;
         color: #fff;
     }
+    @media only screen and (max-width: 600px) {
+        margin: 10px;
+    }
     .card-info{
         span{
             font-size: 50px;

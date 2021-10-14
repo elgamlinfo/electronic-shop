@@ -3,17 +3,27 @@
 
 .header{
     margin: 40px 0px;
+    @media only screen and (max-width: 600px) {
+        margin: 10px 0px;
+    }
     .container{
         .swiper-container {
             height: 400px;
             border-radius: 15px;
             position: relative;
+            @media only screen and (max-width: 600px) {
+                height:135px;
+            }
             .swiper-pagination {
                 position: absolute;
                 top: 15px;
                 left: 98%;
                 bottom: 0;
                 width: 20px;
+                @media only screen and (max-width: 600px) {
+                    left: 96%;
+                    top: 5px;
+                }
                 .swiper-pagination-bullet {
                     display: block;
                     background-color: #2D2D2D;
@@ -23,6 +33,11 @@
                     margin: 8px 0px;
                     &.swiper-pagination-bullet-active{
                         background-color: #fff;
+                    }
+                    @media only screen and (max-width: 600px) {
+                        width: 7px ;
+                        height: 7px;
+                        margin: 4px 0px;
                     }
                 }
             } 
@@ -35,6 +50,9 @@
                     justify-content: left;
                     align-items: center;
                     padding-left: 80px;
+                    @media only screen and (max-width: 600px) {
+                        padding-left: 20px;
+                    }
                 }
             }
         }

@@ -7,14 +7,24 @@
         border-radius: 0px 0px 80px 80px;
         width: 100%;
         height:100px;
+        @media only screen and (max-width: 600px) {
+            border-radius: 0px 0px 45px 45px;
+        }
     }
     .footer-content {
         width: 70%;
         margin: 80px auto;
+        @media only screen and (max-width: 600px) {
+            margin: 40px auto;
+            width: 90%;
+        }
         .services{
             display: flex;
             justify-content: space-between;
             align-items: center;
+            @media only screen and (max-width: 600px) {
+                flex-wrap: wrap;
+            }
             .serv-card{
                 color: $yel-color;
                 width: 120px;
@@ -25,6 +35,9 @@
                 justify-content: center;
                 align-items: center;
                 flex-wrap: wrap;
+                @media only screen and (max-width: 600px) {
+                    margin: 10px;
+                }
                 span{
                     display: block;
                     width: 100%;

@@ -13,16 +13,27 @@
         justify-content: left;
         align-items: center;
         padding-left: 60px;
+        @media only screen and (max-width: 600px) {
+            height: 130px;
+            padding-left: 15px;
+            margin:20px auto;
+        }
         .ads-info  {
             .product-name {
                 color:$base-color;
                 font-weight: bold;
                 font-size:60px;
+                @media only screen and (max-width: 600px) {
+                    font-size: 30px;
+                }
             }
             p {
                 color: #878D92;
                 font-weight: bold;
                 line-height: 1.6;
+                @media only screen and (max-width: 600px) {
+                    font-size: 8px;
+                }
             }
             .read-more {
                 background-color: $base-color;
@@ -39,6 +50,15 @@
                 cursor: pointer;
                 span:last-of-type {
                     font-size: 22px;
+                }
+                @media only screen and (max-width: 600px) {
+                    width: 85px;
+                    font-size: 10px;
+                    padding: 3px 5px;
+                    margin-top: 5px;
+                    span:last-of-type{
+                        font-size: 14px;
+                    }
                 }
             }
         }

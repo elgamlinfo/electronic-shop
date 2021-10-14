@@ -14,6 +14,7 @@ const Categories = () => {
                     <CategoryCard name="storage"  icon="sd-card"/>
                     <CategoryCard name="camera"   icon="camera"/>
                     <CategoryCard name="keyboard" icon="keyboard"/>
+                    <CategoryCard name="PC" icon="desktop"/>
                 </div>
             </div>
         </div>

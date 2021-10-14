@@ -5,6 +5,9 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
+    @media only screen and (max-width: 600px) {
+        margin-bottom: 25px;
+    }
     h3 {
         color: $base-color;
         text-transform: capitalize;
