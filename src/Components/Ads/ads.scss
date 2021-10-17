@@ -13,6 +13,16 @@
         justify-content: left;
         align-items: center;
         padding-left: 60px;
+        @media only screen and (max-width: $xl) {
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        @media only screen and (max-width: $lg) {
+            height: 260px;
+            padding-left: 30px;
+            margin:20px auto;
+            background-size: cover;  
+        }
         @media only screen and (max-width: $md) {
             height: 230px;
             padding-left: 30px;

@@ -15,6 +15,10 @@
         background-color: $yel-color;
         color: #fff;
     }
+    @media only screen and (max-width: $lg) {
+        margin: 10px;
+        width: calc(100% / 4);
+    }
     @media only screen and (max-width: $md) {
         margin: 10px;
         width: 44%;
