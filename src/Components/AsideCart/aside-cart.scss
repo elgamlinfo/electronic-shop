@@ -12,6 +12,12 @@
     height: 100vh;
     background-color: rgba($color: #000000, $alpha: 0.5);
     z-index: 999;
+    @media only screen and (max-width: $md) {
+        width: 60%;
+    }
+    @media only screen and (max-width: $sm) {
+        width: 100%;
+    }
     .aside-cart {
         position: absolute;
         background-color: $base-color;
@@ -20,6 +26,12 @@
         width: 400px;
         height: 100%; 
         transition: all 0.3s ease-in-out;
+        @media only screen and (max-width: $md) {
+            width: 100%;
+        }
+        @media only screen and (max-width: $sm) {
+            width: 100%;
+        }
         .close-btn {
             height: 5%;
             display: flex;

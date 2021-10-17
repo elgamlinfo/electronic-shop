@@ -13,9 +13,14 @@
         justify-content: left;
         align-items: center;
         padding-left: 60px;
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width: $sm) {
             height: 130px;
             padding-left: 15px;
+            margin:20px auto;
+        }
+        @media only screen and (max-width: $md) {
+            height: 230px;
+            padding-left: 30px;
             margin:20px auto;
         }
         .ads-info  {
@@ -23,16 +28,22 @@
                 color:$base-color;
                 font-weight: bold;
                 font-size:60px;
-                @media only screen and (max-width: 600px) {
+                @media only screen and (max-width: $sm) {
                     font-size: 30px;
+                }
+                @media only screen and (max-width: $md) {
+                    font-size: 45px;
                 }
             }
             p {
                 color: #878D92;
                 font-weight: bold;
                 line-height: 1.6;
-                @media only screen and (max-width: 600px) {
+                @media only screen and (max-width: $sm) {
                     font-size: 8px;
+                }
+                @media only screen and (max-width: $md) {
+                    font-size: 12px;
                 }
             }
             .read-more {
