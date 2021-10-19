@@ -7,16 +7,14 @@ import Ads from '../../Components/Ads/Ads'
 const Home = () => {
     return (
         <div>
-            <header>
-                <Header />
-                <Categories />
-                <ShowProducts title='Offers & Top Selling'/>
-                <Ads />
-                <ShowProducts title='Mobiles'/>
-                <ShowProducts title='Cameras'/>
-                <ShowProducts title='Keyboard & Mouse'/>
-                <Ads />
-            </header>
+            <Header />
+            <Categories />
+            <ShowProducts title='Offers & Top Selling'/>
+            <Ads />
+            <ShowProducts title='Mobiles'/>
+            <ShowProducts title='Cameras'/>
+            <ShowProducts title='Keyboard & Mouse'/>
+            <Ads />
         </div>
     )
 }

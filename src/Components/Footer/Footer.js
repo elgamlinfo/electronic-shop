@@ -3,7 +3,12 @@ import './footer.scss'
 const Footer = () => {
     return (
         <div className="footer">
-            <div className='round-shape'></div>
+            <div 
+            className='round-shape' 
+            style={
+                window.location.pathname === "/login"?{background:"#f1f1f1"}:
+                window.location.pathname === "/signup"?{background:"#f1f1f1"}:
+                {background:"#fff"}}></div>
             <div className='footer-content'>
                 <div className='services'>
                     <div className='serv-card'>

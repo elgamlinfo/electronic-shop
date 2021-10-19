@@ -22,7 +22,7 @@ SwiperCore.use([Pagination,Mousewheel,Autoplay]);
 
 const Header = () => {
     return (
-        <div className='header'>
+        <div className='header' >
             <div className='container'>
                 <Swiper 
                     pagination={{"clickable": true}} 

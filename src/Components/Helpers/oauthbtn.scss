@@ -1,0 +1,27 @@
+@import '../sass/variables';
+
+.auth_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0px;
+    button {
+        width: 45%;
+        padding: 8px;
+        margin: 10px;
+        border:none;
+        outline: none;
+        font-size: 20px;
+        border-radius: 7px ;
+        cursor: pointer;
+        &.fb_btn{
+            background-color: #1092F4;
+            color:#fff;
+        }
+        &.g_btn{
+            background-color: $gray-color;
+            color:$base-color;
+        }
+    }
+}
