@@ -5,6 +5,7 @@ import Footer from './Components/Footer/Footer';
 import Navbar from './Components/Navbar/Navbar';
 import Home from './Pages/Home/Home'
 import Login from './Pages/Login/Login';
+import ShowProduct from './Pages/ShowProduct/ShowProduct';
 import SignUp from './Pages/Signup/SignUp';
 import './styles/global.scss'
 
@@ -22,6 +23,7 @@ const App = () => {
                         <Route exact path='/' component={Home}/>
                         <Route exact path='/signup' component={SignUp}/>
                         <Route exact path='/login' component={Login}/>
+                        <Route exact path='/product' component={ShowProduct}/>
                     </Switch>
                 </BrowserRouter>
             <Footer />

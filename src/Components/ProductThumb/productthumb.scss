@@ -1,0 +1,17 @@
+@import '../sass/variables';
+
+
+.product_thumb {
+    display: flex;
+    width: 45%;
+    display: flex;
+    //justify-content: center;
+   //align-items: center;
+    .thumb_1 {
+        width: 15%;
+    }
+    .thumb_2 {
+        width: 85%; 
+        height: 500px;
+    }
+}
