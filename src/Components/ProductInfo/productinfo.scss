@@ -2,8 +2,13 @@
 
 .product_info {
     width: 55%;
-    @media only screen and(max-width: $sm) {
+    @media only screen and(max-width: $lg) {
+        width: 45%;
+    }
+    @media only screen and(max-width: $md) {
         width: 100%;
+        margin-top: 40px;
+        padding: 10px;
     }
     .product_title {
         color: $base-color;
@@ -21,6 +26,9 @@
                 color: $purp-color;
                 cursor: pointer;
             }
+            @media only screen and(max-width: $sm) {
+                font-size: 22px;
+            }
         }
     }
     .description {
@@ -36,6 +44,9 @@
             font-size: 22px;
             color: #8D959D;
             font-weight: 300;
+            @media only screen and(max-width: $sm) {
+                font-size: 18px;
+            }
         }
     }
     .color {
@@ -87,6 +98,9 @@
                 font-weight: 400;
                 position: relative;
                 padding-left: 25px;
+                @media only screen and(max-width: $sm) {
+                    font-size: 14px;
+                }
                 &::before {
                     position: absolute;
                     content: '';
@@ -104,6 +118,10 @@
         margin: 20px auto;
         display: flex;
         align-items: center;
+        @media only screen and(max-width: $sm) {
+            justify-content: center;
+            margin: 40px auto;
+        }
         button {
             width: 100px;
             margin-right: 10px;
