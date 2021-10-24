@@ -3,6 +3,7 @@ import './productinfo.scss'
 const ProductInfo = () => {
     return (
         <div className='product_info'>
+            {/* product title */}
             <div className='product_title'>
                 <h2>MacBook Pro 16 Inch</h2>
                 <p className='company_name'>by <span>pc company</span></p>
