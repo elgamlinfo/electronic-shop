@@ -1,9 +1,14 @@
+@import '../../Components/sass/variables';
+
 .show_product{
     margin-top: 60px;
     .container {
         .wrapper{
             display: flex;
             justify-content: center;
+            @media only screen and(max-width: $sm) {
+                flex-wrap: wrap;
+            }
         }
     }
 }

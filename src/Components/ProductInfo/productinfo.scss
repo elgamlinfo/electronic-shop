@@ -2,10 +2,16 @@
 
 .product_info {
     width: 55%;
+    @media only screen and(max-width: $sm) {
+        width: 100%;
+    }
     .product_title {
         color: $base-color;
         h2 {
             font-size: 45px;
+            @media only screen and(max-width: $sm) {
+                font-size: 33px;
+            }
         }
         .company_name {
             font-size: 28px;

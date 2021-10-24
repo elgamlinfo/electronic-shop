@@ -5,13 +5,23 @@
     display: flex;
     width: 45%;
     display: flex;
-    //justify-content: center;
-   //align-items: center;
+    @media only screen and(max-width: $sm) {
+        width: 100%;
+        justify-content: center;
+    }
     .thumb_1 {
         width: 15%;
+        @media only screen and(max-width: $sm) {
+            width: 20%;
+            margin-left: 10px;
+        }
     }
     .thumb_2 {
         width: 85%; 
         height: 500px;
+        @media only screen and(max-width: $sm) {
+            width: 80%;
+            height: 300px;
+        }
     }
 }
