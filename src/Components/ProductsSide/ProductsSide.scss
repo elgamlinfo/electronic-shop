@@ -1,0 +1,10 @@
+
+.products_aside{
+    width: 85%;
+    .products_wrapper {
+        display: flex;
+        justify-content:space-between;
+        flex-wrap: wrap;
+        margin-top: 40px;
+    }
+}

@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import AsideCart from './Components/AsideCart/AsideCart';
 import Footer from './Components/Footer/Footer';
 import Navbar from './Components/Navbar/Navbar';
+import AllProducts from './Pages/AllProdusts/AllProducts';
 import Home from './Pages/Home/Home'
 import Login from './Pages/Login/Login';
 import ShowProduct from './Pages/ShowProduct/ShowProduct';
@@ -24,6 +25,7 @@ const App = () => {
                         <Route exact path='/signup' component={SignUp}/>
                         <Route exact path='/login' component={Login}/>
                         <Route exact path='/product' component={ShowProduct}/>
+                        <Route exact path='/allproducts' component={AllProducts}/>
                     </Switch>
                 </BrowserRouter>
             <Footer />
