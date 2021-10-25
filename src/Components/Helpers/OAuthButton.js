@@ -1,5 +1,5 @@
 import React from 'react'
-import './oauthbtn.scss'
+import './helpers.scss'
 const O_Auth_Button = () => {
     return (
         <div className='auth_btn'>

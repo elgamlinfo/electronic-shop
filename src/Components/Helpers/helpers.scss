@@ -1,0 +1,298 @@
+@import '../sass/variables'; 
+
+
+////*******start aside product cart******///////
+.aside-product {
+    display: flex;
+    background-color: #fff;
+    padding: 10px;
+    width: 90%;
+    border-radius: 10px;
+    margin: 0px auto 10px auto;
+    .img-box {
+        width: 30%;
+        background-color: $gray-color;
+        padding: 5px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 100%;
+        }
+    }
+    .product-info {
+        padding-left: 10px;
+        .product-name{
+            color: $base-color;
+            font-size: 22px;
+        }
+        .product-price{
+            color: $yel-color;
+            font-size: 20px;
+            padding: 5px 0px;
+        }
+        .read-more {
+            background-color: #343A40;
+            color: #fff;
+            border: none;
+            outline: none;
+            padding: 6px 17px;
+            font-size: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+    }
+}
+////*******end aside product cart******///////
+
+
+
+////*******start category******///////
+.card {
+    width: 160px;
+    height: 170px;
+    background-color: $gray-color;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $base-color;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+        background-color: $yel-color;
+        color: #fff;
+    }
+    @media only screen and (max-width: $lg) {
+        margin: 10px;
+        width: calc(100% / 4);
+    }
+    @media only screen and (max-width: $md) {
+        margin: 10px;
+        width: 44%;
+    }
+
+    .card-info{
+        span{
+            font-size: 50px;
+            display: block;
+            text-align: center;
+        }
+        p {
+            font-size: 20px;
+            font-weight: 500;
+            text-align: center;
+            text-transform: capitalize;
+            margin-top: 8px;
+        }
+    }
+}
+////*******end category******///////
+
+
+
+
+////*******start form subbtn******///////
+.subbtn {
+    display: block;
+    height: 40px;
+    background-color: $base-color;
+    color: #fff;
+    width: 60%;
+    margin: 20px auto;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+}
+////*******end form subbtn******///////
+
+
+////*******start input******///////
+.input_fld {
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+    height: 40px;
+    border-radius: 15px;
+    border: 2px solid rgba($color: $base-color, $alpha: 0.5);
+    padding: 15px;
+    color: $base-color;
+    font-style: italic;
+}
+////*******end input******///////
+
+
+////*******start oauthbtn******///////
+.auth_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0px;
+    button {
+        width: 45%;
+        padding: 8px;
+        margin: 10px;
+        border:none;
+        outline: none;
+        font-size: 20px;
+        border-radius: 7px ;
+        cursor: pointer;
+        &.fb_btn{
+            background-color: #1092F4;
+            color:#fff;
+        }
+        &.g_btn{
+            background-color: $gray-color;
+            color:$base-color;
+        }
+    }
+}
+////*******end oauthbtn******///////
+
+
+
+////*******start product******///////
+.product {
+    width: 300px;
+    .img-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background-color: $gray-color;
+        padding: 30px 0px;
+        border-radius: 15px;
+        border: 2px solid transparent;
+        transition: all 0.3s ease-in-out;
+        img {
+            width: 100%;
+        }
+        .options{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            overflow: hidden;
+            span{
+                display: block;
+                cursor: pointer;
+                padding: 5px;
+                color: $base-color;
+                margin-bottom: -50px;
+                transition: all 0.3s ease-in-out;
+                &:nth-of-type(2) {
+                    transition-delay: 0.1s ;
+                }
+                &:nth-of-type(3) {
+                    transition-delay: 0.2s ;
+                }
+            }
+        }
+        &:hover {
+            background: none;
+            border: 2px solid $gray-color;
+            .options{
+                span {
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+    .product-info {
+        margin: 10px 0px;
+        padding: 10px;
+        text-align: center; 
+        .product-price{
+            color: $yel-color;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .product-name {
+            color: #878D92;
+            text-transform: capitalize;
+            font-size: 20px;
+        }
+    }
+}
+////*******end product******///////
+
+
+
+////*******start title******///////
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    @media only screen and (max-width: 600px) {
+        margin-bottom: 25px;
+    }
+    h3 {
+        color: $base-color;
+        text-transform: capitalize;
+    }
+    p{
+        color: $yel-color;
+        cursor: pointer;
+    }
+}
+////*******end title******///////
+
+
+
+////*******start  thumb_img******///////
+.thumb_img {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $gray-color;
+    padding: 10px 5px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    img{
+        width: 100%;
+    }
+}
+////*******end thumb_img******///////
+
+
+
+////*******start valid-txt ******///////
+.valid-txt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    width: 100%;
+    font-size: 24px;
+    font-weight: 200;
+    margin: 10px 0px;
+    span {
+        color: $yel-color;
+        font-size: 18px;
+        padding: 10px;
+        i {
+            padding-top: 8px;
+        }
+        &.invalid{
+            color: $purp-color;  
+            font-size: 20px; 
+        }
+    }
+}
+////*******end valid-txt******///////
+
+
+

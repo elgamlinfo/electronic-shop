@@ -1,5 +1,5 @@
 import React from 'react'
-import './thumbimg1.scss'
+import './helpers.scss'
 
 const ThumbImg1 = (props) => {
     return (

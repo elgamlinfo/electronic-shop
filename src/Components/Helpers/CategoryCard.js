@@ -1,5 +1,5 @@
 import React from 'react'
-import './categorycard.scss'
+import './helpers.scss'
 const CategoryCard = (props) => {
     return (
         <div className='card'>

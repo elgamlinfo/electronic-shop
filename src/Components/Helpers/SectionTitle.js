@@ -1,5 +1,5 @@
 import React from 'react'
-import './title.scss'
+import './helpers.scss'
 const SectionTitle = (props) => {
     return (
         <div className='title'>

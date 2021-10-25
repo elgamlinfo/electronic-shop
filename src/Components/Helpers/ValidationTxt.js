@@ -1,5 +1,5 @@
 import React from 'react'
-import './validationtxt.scss'
+import './helpers.scss'
 const ValidationTxt = (props) => {
     return (
         <div className='valid-txt'>

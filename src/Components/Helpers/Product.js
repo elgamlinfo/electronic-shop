@@ -1,6 +1,6 @@
 import React from 'react'
 import productImg from '../../images/product.png'
-import './product.scss'
+import './helpers.scss'
 const Product = () => {
     return (
         <div className='product'>

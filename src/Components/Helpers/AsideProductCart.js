@@ -1,5 +1,5 @@
 import React from 'react'
-import './asideproductcart.scss'
+import './helpers.scss'
 import ProductImg from '../../images/product.png'
 const AsideProductCart = () => {
     return (
