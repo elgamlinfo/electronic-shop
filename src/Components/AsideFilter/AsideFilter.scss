@@ -2,12 +2,12 @@
 .aside_filter{
     width: 25%;
     padding: 0px 20px;
-    @media only screen and (max-width: $sm) {
+    @media only screen and (max-width: $md) {
         position: fixed;
-        width: 80%;
+        width: 50%;
         height: 100vh;
         top: 0px;
-        left: -80%; 
+        left: -50%; 
         z-index: 99;  
         padding: 0px;
         transition: all 0.3s ease-in-out;
@@ -15,10 +15,14 @@
             left: 0px; 
         }        
     }
+    @media only screen and (max-width: $sm) {
+        width: 80%; 
+        left: -80%; 
+    }
     .toggle_btn {
         display: none;
         cursor: pointer;
-        @media only screen and (max-width: $sm) {
+        @media only screen and (max-width: $md) {
             display: flex;
             align-items: center;
             justify-content: right;
@@ -53,7 +57,7 @@
         background-color: $base-color;
         border-radius: 10px;
         padding: 15px;
-        @media only screen and (max-width: $sm) {
+        @media only screen and (max-width: $md) {
             border-radius: 0px;
             height: 100vh;
         }
