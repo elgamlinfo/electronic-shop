@@ -1,5 +1,4 @@
-@import '../sass/variables'; 
-
+@import "../sass/variables";
 
 ////*******start aside product cart******///////
 .aside-product {
@@ -17,23 +16,23 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        img{
+        img {
             width: 100%;
         }
     }
     .product-info {
         padding-left: 10px;
-        .product-name{
+        .product-name {
             color: $base-color;
             font-size: 22px;
         }
-        .product-price{
+        .product-price {
             color: $yel-color;
             font-size: 20px;
             padding: 5px 0px;
         }
         .read-more {
-            background-color: #343A40;
+            background-color: #343a40;
             color: #fff;
             border: none;
             outline: none;
@@ -47,8 +46,6 @@
 }
 ////*******end aside product cart******///////
 
-
-
 ////*******start category******///////
 .card {
     width: 160px;
@@ -61,7 +58,7 @@
     color: $base-color;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    &:hover{
+    &:hover {
         background-color: $yel-color;
         color: #fff;
     }
@@ -74,8 +71,8 @@
         width: 44%;
     }
 
-    .card-info{
-        span{
+    .card-info {
+        span {
             font-size: 50px;
             display: block;
             text-align: center;
@@ -90,9 +87,6 @@
     }
 }
 ////*******end category******///////
-
-
-
 
 ////*******start form subbtn******///////
 .subbtn {
@@ -112,7 +106,6 @@
 }
 ////*******end form subbtn******///////
 
-
 ////*******start input******///////
 .input_fld {
     display: block;
@@ -127,9 +120,8 @@
 }
 ////*******end input******///////
 
-
 ////*******start oauthbtn******///////
-.auth_btn{
+.auth_btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -139,24 +131,22 @@
         width: 45%;
         padding: 8px;
         margin: 10px;
-        border:none;
+        border: none;
         outline: none;
         font-size: 20px;
-        border-radius: 7px ;
+        border-radius: 7px;
         cursor: pointer;
-        &.fb_btn{
-            background-color: #1092F4;
-            color:#fff;
+        &.fb_btn {
+            background-color: #1092f4;
+            color: #fff;
         }
-        &.g_btn{
+        &.g_btn {
             background-color: $gray-color;
-            color:$base-color;
+            color: $base-color;
         }
     }
 }
 ////*******end oauthbtn******///////
-
-
 
 ////*******start product******///////
 .product {
@@ -176,7 +166,7 @@
         img {
             width: 100%;
         }
-        .options{
+        .options {
             position: absolute;
             bottom: 0;
             width: 100%;
@@ -185,7 +175,7 @@
             align-items: center;
             padding: 10px;
             overflow: hidden;
-            span{
+            span {
                 display: block;
                 cursor: pointer;
                 padding: 5px;
@@ -193,17 +183,17 @@
                 margin-bottom: -50px;
                 transition: all 0.3s ease-in-out;
                 &:nth-of-type(2) {
-                    transition-delay: 0.1s ;
+                    transition-delay: 0.1s;
                 }
                 &:nth-of-type(3) {
-                    transition-delay: 0.2s ;
+                    transition-delay: 0.2s;
                 }
             }
         }
         &:hover {
             background: none;
             border: 2px solid $gray-color;
-            .options{
+            .options {
                 span {
                     margin-bottom: 0px;
                 }
@@ -213,14 +203,14 @@
     .product-info {
         margin: 10px 0px;
         padding: 10px;
-        text-align: center; 
-        .product-price{
+        text-align: center;
+        .product-price {
             color: $yel-color;
             font-size: 20px;
             margin-bottom: 10px;
         }
         .product-name {
-            color: #878D92;
+            color: #878d92;
             text-transform: capitalize;
             font-size: 20px;
         }
@@ -228,10 +218,8 @@
 }
 ////*******end product******///////
 
-
-
 ////*******start title******///////
-.title{
+.title {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -243,14 +231,12 @@
         color: $base-color;
         text-transform: capitalize;
     }
-    p{
+    p {
         color: $yel-color;
         cursor: pointer;
     }
 }
 ////*******end title******///////
-
-
 
 ////*******start  thumb_img******///////
 .thumb_img {
@@ -263,13 +249,11 @@
     border-radius: 10px;
     margin-bottom: 10px;
     cursor: pointer;
-    img{
+    img {
         width: 100%;
     }
 }
 ////*******end thumb_img******///////
-
-
 
 ////*******start valid-txt ******///////
 .valid-txt {
@@ -288,15 +272,13 @@
         i {
             padding-top: 8px;
         }
-        &.invalid{
-            color: $purp-color;  
-            font-size: 20px; 
+        &.invalid {
+            color: $purp-color;
+            font-size: 20px;
         }
     }
 }
 ////*******end valid-txt******///////
-
-
 
 ////*******start title with filter******///////
 .title_with_filter {
@@ -316,14 +298,14 @@
         display: flex;
         align-items: center;
         color: $gray-color;
-        p{
+        p {
             padding-right: 10px;
         }
-        select{
+        select {
             background-color: transparent;
             color: $gray-color;
             border-radius: 0px;
-            padding:3px;
+            padding: 3px;
             text-transform: capitalize;
             outline: none;
             option {
@@ -334,9 +316,8 @@
 }
 ////*******end title with filter******///////
 
-
 ////*******start filter******///////
-.filter{
+.filter {
     width: 100%;
     margin: 10px auto;
     p {
@@ -344,32 +325,31 @@
         text-transform: capitalize;
         font-size: 14px;
     }
-    .check_boxes{
+    .check_boxes {
         background-color: $gray-color;
         color: $base-color;
         border-radius: 6px;
         max-height: 150px;
-        padding: 10px 0px 0px 10px ;
+        padding: 10px 0px 0px 10px;
         overflow-y: scroll;
         overflow-x: hidden;
-        margin: 5px auto;  
+        margin: 5px auto;
         &::-webkit-scrollbar {
             width: 7px;
         }
-        
+
         /* Track */
         &::-webkit-scrollbar-track {
             background: $gray-color;
             border-radius: 15px;
-
         }
-        
+
         /* Handle */
         &::-webkit-scrollbar-thumb {
             background: $purp-color;
             border-radius: 15px;
         }
-        
+
         /* Handle on hover */
         &::-webkit-scrollbar-thumb:hover {
             background: #555;
@@ -379,22 +359,92 @@
 
 ////*******end  filter******///////
 
-
 ////*******start filter check******///////
 .filter_check {
     display: flex;
     align-items: center;
     padding: 5px 0px;
-    input{
+    input {
         width: 15px;
         height: 15px;
         cursor: pointer;
     }
-    label{
+    label {
         font-size: 18px;
         padding-left: 5px;
     }
 }
 ////*******end  filter check******///////
 
-
+//////////******start check out product*********/////////
+.Checkout_product {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 0px 5px #ccc;
+    border-radius: 10px;
+    margin: 20px auto;
+    .img_cont {
+        height: 80px;
+        width: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $gray-color;
+        border-radius: 10px;
+        margin: 5px;
+        img {
+            width: 100%;
+        }
+    }
+    .info_cont {
+        width: 30%;
+        h3 {
+            color: $base-color;
+            margin-bottom: 5px;
+        }
+        p {
+            span {
+                color: $purp-color;
+                cursor: pointer;
+            }
+        }
+    }
+    .counter_cont {
+        width: 25%;
+        button {
+            background-color: #343a40;
+            color: #fff;
+            padding: 4px;
+            border: none;
+            outline: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        span {
+            padding: 0px 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: $base-color;
+        }
+    }
+    .price_cont {
+        width: 20%;
+        font-size: 20px;
+        font-weight: 500;
+        color: $base-color;
+    }
+    .delete_btn {
+        background: #f83030;
+        height: 90px;
+        width: 70px;
+        border-radius: 0px 10px 10px 0px;
+        border: none;
+        color: #fff;
+        font-size: 20px;
+        box-shadow: 0px 0px 10px #ccc;
+        cursor: pointer;
+        outline: none;
+    }
+}
+//////////*****end check out product*********/////////

@@ -1,0 +1,42 @@
+@import '../sass/_variables.scss';
+.product_side {
+    width: 60%;
+    .product_side_head{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+        .product_side_title {
+            color: $base-color;
+            h3 {
+                font-size: 24px;
+                padding-bottom: 5px;
+                text-transform: capitalize;
+            }
+            p {
+                font-size: 14px;
+                font-weight: 300;
+            }
+        }
+        .sort {
+            display: flex;
+            align-items: center;
+            color: $base-color;
+            p{
+                padding-right: 10px;
+            }
+            select{
+                background-color: transparent;
+                color: $base-color;
+                border-radius: 0px;
+                padding:3px;
+                text-transform: capitalize;
+                outline: none;
+                option {
+                    color: $base-color;
+                }
+            }
+        }
+    }
+}
