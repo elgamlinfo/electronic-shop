@@ -1,20 +1,27 @@
 @import '../sass/variables';
 .products_aside{
     width: 85%;
+    @media only screen and (max-width: $xl) {
+        width: 70%;
+    }
+    @media only screen and (max-width: $lg) {
+        width: 75%;
+    }
     @media only screen and (max-width: $md) {
         width: 100%;
     }
     .products_wrapper {
         display: flex;
-        justify-content:space-between;
+        justify-content:center;
+        gap: 20px;
         flex-wrap: wrap;
         margin-top: 40px;
-        @media only screen and (max-width: $sm) {
-            justify-content: space-between;
-        }
-        @media only screen and (max-width: $sm) {
-            justify-content: center;
-            align-items: center;
-        }
+        // @media only screen and (max-width: $sm) {
+        //     justify-content: space-between;
+        // }
+        // @media only screen and (max-width: $sm) {
+        //     justify-content: center;
+        //     align-items: center;
+        // }
     }
 }
