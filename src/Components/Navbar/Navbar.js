@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './navbar.scss'
 import Image from '../../images/person.jpg'
 const Navbar = (props) => {
+    const [active, setActive] = useState('');
+
+    let toggleHundel = (e) => {
+        active === ''?setActive("active"):setActive("");
+    }
     return (
         <div className='navbar' 
         style={
@@ -10,11 +15,15 @@ const Navbar = (props) => {
             {background:"#fff"}   }>
             <div className='container'>
                 <h1 className='logo'>shop logo</h1>
-                <div className="search-box">
-                    <input type='text' name='search' className='search' placeholder='Laptops, cameras, phones.....'/>
-                    <button className='search-btn'><i className='fas fa-search'></i></button>
+                <div className={`search_over ${active}`}>
+                    <button className='toggle-close' onClick={_ => toggleHundel()}><i className='fas fa-times'></i></button>
+                    <div className="search-box">
+                        <input type='text' name='search' className='search' placeholder='Laptops, cameras, phones.....'/>
+                        <button className='search-btn'><i className='fas fa-search'></i></button>
+                    </div>
                 </div>
                 <div className='options'>
+                    <button className='search-tog' onClick={_ => toggleHundel()}><i className='fas fa-search'></i></button>
                     <button className='shop-cart' onClick={() => props.cartClickHunler()}><i className='fas fa-shopping-bag'></i></button>
                     <button className='shop-fav'><i className='far fa-heart'></i></button>
                     <img src={Image} alt=''/>

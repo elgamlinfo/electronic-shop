@@ -1,8 +1,12 @@
+@import '../../Components/sass/variables';
 .check_out {
     margin-top: 40px;
     .container{
         .check_wrapper{
             display: flex;
+            @media only screen and (max-width: $md) {
+                flex-wrap: wrap;
+            }
         }
     }
 }

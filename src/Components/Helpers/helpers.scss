@@ -384,6 +384,11 @@
     box-shadow: 0px 0px 5px #ccc;
     border-radius: 10px;
     margin: 20px auto;
+    @media only screen and (max-width: $sm) {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 90%;
+    }
     .img_cont {
         height: 80px;
         width: 80px;
@@ -393,6 +398,10 @@
         background-color: $gray-color;
         border-radius: 10px;
         margin: 5px;
+        @media only screen and (max-width: $sm) {
+            width: 100%;
+            height: auto;
+        }
         img {
             width: 100%;
         }
@@ -409,9 +418,17 @@
                 cursor: pointer;
             }
         }
+        @media only screen and (max-width: $sm) {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
     }
     .counter_cont {
         width: 25%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         button {
             background-color: #343a40;
             color: #fff;
@@ -427,12 +444,19 @@
             font-weight: bold;
             color: $base-color;
         }
+        @media only screen and (max-width: $sm) {
+            width: 50%;
+        }
     }
     .price_cont {
         width: 20%;
         font-size: 20px;
         font-weight: 500;
         color: $base-color;
+        text-align: center;
+        @media only screen and (max-width: $sm) {
+            width: 50%;
+        }
     }
     .delete_btn {
         background: #f83030;
@@ -445,6 +469,12 @@
         box-shadow: 0px 0px 10px #ccc;
         cursor: pointer;
         outline: none;
+        @media only screen and (max-width: $sm) {
+            width: 100%;
+            border-radius: 0px 0px 10px 10px;
+            height: 60px;
+            margin-top: 20px;
+        }
     }
 }
 //////////*****end check out product*********/////////
