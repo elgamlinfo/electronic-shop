@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
+import Loading from '../../Components/Loading/Loading';
 import AuthForm from '../../Components/AuthForm/AuthForm'
 
 const SignUp = () => {
@@ -19,8 +20,16 @@ const SignUp = () => {
             placeholder:'confirm password here'
         }
     ]
+    const [loading, setLoading] = useState(true);
+    useEffect(_=> {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        },2000)
+    },[])
     return (
         <>
+            <Loading loading ={loading}/>
             <AuthForm inputsData={inputsData} text='sign up'/>  
         </>
     )

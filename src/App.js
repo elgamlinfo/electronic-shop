@@ -1,9 +1,8 @@
 import React, { useState,useEffect } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { css } from "@emotion/react";
-import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 import AsideCart from './Components/AsideCart/AsideCart';
 import Footer from './Components/Footer/Footer';
+import Loading from './Components/Loading/Loading';
 import Navbar from './Components/Navbar/Navbar';
 import AllProducts from './Pages/AllProdusts/AllProducts';
 import CheckOut from './Pages/CheckOut/CheckOut';
@@ -27,9 +26,8 @@ const App = () => {
         setLoading(false);
     }
     return (
-        <div>
-        {loading?<div className='loading_overlay'><div><ClimbingBoxLoader color={'#FFC107'}  size={15} /></div></div>:
         <>
+            <Loading loading ={loading}/>
             <Navbar cartClickHunler = {cartClickHunler}/>
             <AsideCart clicked={cartClicked} cartClickHunler = {cartClickHunler}/>
                 <BrowserRouter>
@@ -43,8 +41,7 @@ const App = () => {
                     </Switch>
                 </BrowserRouter>
             <Footer />
-        </>}
-        </div>
+        </>
     )
 }
 

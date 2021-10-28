@@ -1,0 +1,14 @@
+@import '../sass/variables';
+
+.loading_overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $base-color;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+}
