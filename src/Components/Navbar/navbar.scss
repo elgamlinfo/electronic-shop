@@ -35,6 +35,7 @@
                 transition: all 0.2s linear;
             }
             .toggle-close{
+                display: none;
                 position: absolute;
                 top: 0;
                 right: 0;
@@ -45,6 +46,9 @@
                 background: none;
                 border: none;
                 outline: none;
+                @media only screen and (max-width: $md) {
+                    display: block;
+                }
             }
             .search-box {
                 display: flex;
