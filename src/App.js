@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { css } from "@emotion/react";
+import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 import AsideCart from './Components/AsideCart/AsideCart';
 import Footer from './Components/Footer/Footer';
 import Navbar from './Components/Navbar/Navbar';
@@ -13,10 +15,20 @@ import './styles/global.scss'
 
 const App = () => {
     const [cartClicked, setCartClick] = useState(false);
+    const [loading, setLoading] = useState(true);
     const cartClickHunler = () => {
         setCartClick((prev) => !prev);
     }
+
+    useEffect(_=> {
+        setLoading(true);
+    },[])
+    window.onload = () => {
+        setLoading(false);
+    }
     return (
+        <div>
+        {loading?<div className='loading_overlay'><div><ClimbingBoxLoader color={'#FFC107'}  size={15} /></div></div>:
         <>
             <Navbar cartClickHunler = {cartClickHunler}/>
             <AsideCart clicked={cartClicked} cartClickHunler = {cartClickHunler}/>
@@ -31,7 +43,8 @@ const App = () => {
                     </Switch>
                 </BrowserRouter>
             <Footer />
-        </>
+        </>}
+        </div>
     )
 }
 
