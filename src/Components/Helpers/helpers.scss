@@ -446,6 +446,8 @@
         }
         @media only screen and (max-width: $sm) {
             width: 50%;
+            justify-content: left;
+            padding-left: 10px;
         }
     }
     .price_cont {
