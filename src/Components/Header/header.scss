@@ -23,7 +23,8 @@
             }
             @media only screen and (max-width: $sm) {
                 height:150px;
-                aspect-ratio:15.4/6;
+                width: 100%;
+                //aspect-ratio:15.4/6;
             }
             .swiper-pagination {
                 position: absolute;
