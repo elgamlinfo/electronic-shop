@@ -19,13 +19,13 @@ const Navbar = (props) => {
                     <button className='toggle-close' onClick={_ => toggleHundel()}><i className='fas fa-times'></i></button>
                     <div className="search-box">
                         <input type='text' name='search' className='search' placeholder='Laptops, cameras, phones.....'/>
-                        <button className='search-btn'><i className='fas fa-search'></i></button>
+                        <button className='search-btn' aria-label='search-btn'><i className='fas fa-search'></i></button>
                     </div>
                 </div>
                 <div className='options'>
-                    <button className='search-tog' onClick={_ => toggleHundel()}><i className='fas fa-search'></i></button>
-                    <button className='shop-cart' onClick={() => props.cartClickHunler()}><i className='fas fa-shopping-bag'></i></button>
-                    <button className='shop-fav'><i className='far fa-heart'></i></button>
+                    <button className='search-tog' aria-label='search-tog' onClick={_ => toggleHundel()}><i className='fas fa-search'></i></button>
+                    <button className='shop-cart' aria-label='cart-btn' onClick={() => props.cartClickHunler()}><i className='fas fa-shopping-bag'></i></button>
+                    <button className='shop-fav' aria-label='fav-btn' ><i className='far fa-heart'></i></button>
                     <img src={Image} alt=''/>
                 </div>
             </div>
