@@ -8,6 +8,9 @@ const Footer = () => {
             style={
                 window.location.pathname === "/login"?{background:"#f1f1f1"}:
                 window.location.pathname === "/signup"?{background:"#f1f1f1"}:
+                window.location.pathname === "/profile"?{background:"#000000", height: "10px"}:
+                window.location.pathname === "/profile/orders"?{background:"#000000", height: "10px"}:
+                window.location.pathname === "/profile/favurite"?{background:"#000000", height: "10px"}:
                 {background:"#fff"}}></div>
             <div className='footer-content'>
                 <div className='services'>
