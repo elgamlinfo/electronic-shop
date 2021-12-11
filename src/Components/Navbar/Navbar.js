@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './navbar.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faHeart,faSearch,faShoppingBag } from '@fortawesome/free-solid-svg-icons'
+import { faHeart,faSearch,faShoppingBag } from '@fortawesome/free-solid-svg-icons'
 import Image from '../../images/person.webp'
 const Navbar = (props) => {
     const [active, setActive] = useState('');

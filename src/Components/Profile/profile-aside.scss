@@ -1,0 +1,55 @@
+@import '../sass/variables';
+
+.profile_aside {
+    display: block;
+    width: 20%;
+    height: inherit;
+    background: $base-color;
+    .aside_head {
+        width: 100%;
+        padding: 20px;
+        img{ 
+            display: block;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin: 10px auto;
+        }
+        h1 {
+            display: block;
+            text-align: center;
+            font-size: 22px;
+            color: #fff;
+            text-transform: capitalize;
+            font-weight: 500;
+        }
+    }
+    .aside_navs {
+        margin-top: 20px;
+        .navs{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px 0px;
+            border-bottom: 1px solid $gray-color;
+            color: #fff !important;
+            font-size: 18px;
+            &:first-of-type {
+                border-top: 1px solid $gray-color;
+            }
+            span {
+                width: 30%;
+                text-align: center;
+            }
+            a {
+                width: 70%;
+                color: #fff !important;
+                text-decoration: none;
+                padding-left: 20px;
+                text-transform: capitalize;
+            }
+        }
+    }
+}
