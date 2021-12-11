@@ -1,5 +1,7 @@
 import React from 'react'
 import './footer.scss'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faGem,faPrayingHands,faCertificate,faThumbsUp,faTruckMoving } from '@fortawesome/free-solid-svg-icons'
 const Footer = () => {
     return (
         <div className="footer">
@@ -16,31 +18,31 @@ const Footer = () => {
                 <div className='services'>
                     <div className='serv-card'>
                         <div>
-                            <span><i className='fas fa-truck-moving'></i></span>
+                            <span><FontAwesomeIcon icon={faTruckMoving}/></span>
                             <p>Loren ipsum</p>
                         </div>
                     </div>
                     <div className='serv-card'>
                         <div>
-                            <span><i className="far fa-thumbs-up"></i></span>
+                            <span><FontAwesomeIcon icon={faThumbsUp}/></span>
                             <p>Loren ipsum</p>
                         </div>
                     </div>
                     <div className='serv-card'>
                         <div>
-                            <span><i className='fas fa-certificate'></i></span>
+                            <span><FontAwesomeIcon icon={faCertificate}/></span>
                             <p>Loren ipsum</p>
                         </div>
                     </div>
                     <div className='serv-card'>
                         <div>
-                            <span><i className='fas fa-praying-hands'></i></span>
+                            <span><FontAwesomeIcon icon={faPrayingHands}/></span>
                             <p>Loren ipsum</p>
                         </div>
                     </div>
                     <div className='serv-card'>
                         <div>
-                            <span><i className='far fa-gem'></i></span>
+                            <span><FontAwesomeIcon icon={faGem}/></span>
                             <p>Loren ipsum</p>
                         </div>
                     </div>
