@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './navbar.scss'
-import Image from '../../images/person.jpg'
+import Image from '../../images/person.webp'
 const Navbar = (props) => {
     const [active, setActive] = useState('');
 

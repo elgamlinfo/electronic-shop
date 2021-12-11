@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect, Fragment } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import AsideCart from './Components/AsideCart/AsideCart';
 import Footer from './Components/Footer/Footer';
@@ -10,6 +10,7 @@ import Home from './Pages/Home/Home'
 import Login from './Pages/Login/Login';
 import ShowProduct from './Pages/ShowProduct/ShowProduct';
 import SignUp from './Pages/Signup/SignUp';
+import Profile from './Pages/Profile/Profile'
 import './styles/global.scss'
 
 const App = () => {
@@ -26,7 +27,7 @@ const App = () => {
         setLoading(false);
     }
     return (
-        <>
+        <Fragment>
             <Loading loading ={loading}/>
             <Navbar cartClickHunler = {cartClickHunler}/>
             <AsideCart clicked={cartClicked} cartClickHunler = {cartClickHunler}/>
@@ -35,13 +36,14 @@ const App = () => {
                         <Route exact path='/' component={Home}/>
                         <Route exact path='/signup' component={SignUp}/>
                         <Route exact path='/login' component={Login}/>
+                        <Route exact path='/profile' component={Profile}/>
                         <Route exact path='/product' component={ShowProduct}/>
                         <Route exact path='/allproducts' component={AllProducts}/>
                         <Route exact path='/checkout' component={CheckOut}/>
                     </Switch>
                 </BrowserRouter>
             <Footer />
-        </>
+        </Fragment>
     )
 }
 
