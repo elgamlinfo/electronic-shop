@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './navbar.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart,faSearch,faShoppingBag } from '@fortawesome/free-solid-svg-icons'
+import { faHeart,faSearch,faShoppingBag, faTimes } from '@fortawesome/free-solid-svg-icons'
 import Image from '../../images/person.webp'
 const Navbar = (props) => {
     const [active, setActive] = useState('');
@@ -18,7 +18,7 @@ const Navbar = (props) => {
             <div className='container'>
                 <h1 className='logo'>shop logo</h1>
                 <div className={`search_over ${active}`}>
-                    <button className='toggle-close' onClick={_ => toggleHundel()}><FontAwesomeIcon icon={faSearch}/></button>
+                    <button className='toggle-close' onClick={_ => toggleHundel()}><FontAwesomeIcon icon={faTimes}/></button>
                     <div className="search-box">
                         <input type='text' name='search' className='search' placeholder='Laptops, cameras, phones.....'/>
                         <button className='search-btn' aria-label='search-btn'><FontAwesomeIcon icon={faSearch}/></button>
