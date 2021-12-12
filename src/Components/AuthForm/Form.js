@@ -4,6 +4,8 @@ import Input from '../Helpers/Input'
 import OAuthButton from '../Helpers/OAuthButton'
 import { Link } from 'react-router-dom'
 import './form.scss'
+
+
 const Form = (props) => {
     return (
         <div className='form_cont'>
