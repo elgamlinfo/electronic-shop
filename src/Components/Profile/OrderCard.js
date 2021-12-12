@@ -2,6 +2,7 @@ import React from 'react'
 import './order-card.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBox, faCheck, faTruck } from '@fortawesome/free-solid-svg-icons'
+import OrderProductCard from './OrderProductCard'
 
 const OrderCard = () => {
     return (
@@ -25,6 +26,12 @@ const OrderCard = () => {
                     </span>
                 </div>
             </div>
+            <div className='order_products_cont'>
+                <OrderProductCard />
+                <OrderProductCard />
+                <OrderProductCard />
+            </div>
+            <button className="cansel_btn">cansel</button>
         </div>
     )
 }

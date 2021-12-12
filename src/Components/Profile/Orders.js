@@ -12,6 +12,7 @@ const Orders = () => {
             <h2 className='titl'>Orders</h2>
             <div className='order_card_wrapper'>
                 <OrderCard />
+                <OrderCard />
             </div>
         </div>
     )
