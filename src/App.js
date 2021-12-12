@@ -14,7 +14,6 @@ import Profile from './Pages/Profile/Profile'
 import ProfileContent from './Components/Profile/ProfileContent'
 import Orders from './Components/Profile/Orders'
 import Favurite from './Components/Profile/Favurite'
-import './styles/global.scss'
 
 
 const App = () => {

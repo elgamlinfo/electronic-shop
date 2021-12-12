@@ -1,0 +1,93 @@
+@import '../sass/variables';
+
+
+.order_card {
+    display: block;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    height: 500px;
+    box-shadow: 0 0 10px #ccc;
+    padding-top: 60px;
+    .order_progress {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 4px;
+        margin: 0 auto;
+        background-color: $gray-color;
+        position: relative;
+        .prog {
+            width: 50%;
+            display: block;
+            height: 100%;
+            &.active {
+                background-color: $purp-color;
+            }
+        }
+        .prog_point {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            background-color: transparent;
+            border-radius: 50%;
+            padding: 3px;
+            &.active {
+                background-color: #fff;
+                border: 2px solid $purp-color;
+                span {
+                    background-color: $purp-color;
+                }
+            }
+            span {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 17px;
+                width: 35px;
+                height: 35px;
+                background-color: $gray-color;
+                color: #fff;
+                border-radius: 50%;
+            }
+            &:first-of-type {
+                left: -20px;
+                &::before {
+                    content: 'Order Placed';
+                    position: absolute;
+                    bottom: -31px;
+                    left: -50%;
+                    white-space: nowrap;
+                    color: $base-color;
+                    font-weight: 400;
+                }
+            }
+            &:nth-of-type(2) {
+                left: 50%;
+                &::before {
+                    content: 'In Transit';
+                    position: absolute;
+                    bottom: -31px;
+                    left: -34%;
+                    white-space: nowrap;
+                    color: $base-color;
+                    font-weight: 400;
+                }
+            }
+            &:last-of-type {
+                right: -20px;
+                &::before {
+                    content: 'Completed';
+                    position: absolute;
+                    bottom: -31px;
+                    left: -50%;
+                    white-space: nowrap;
+                    color: $base-color;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}
