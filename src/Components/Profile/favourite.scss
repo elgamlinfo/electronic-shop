@@ -1,0 +1,26 @@
+@import '../sass/variables';
+
+.favourite_content {
+    min-height: calc(100vh - 74.78px);
+    background-color: #f1f1f1;
+    padding: 15px;
+    .titl {
+        color: $base-color;
+        margin-bottom: 5px;
+        font-size: 20px;
+    }
+    .favourite_card_wrapper {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        .product {
+            width: 250px;
+            margin-bottom: 0;
+        }
+    }
+}

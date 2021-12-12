@@ -1,15 +1,20 @@
 import React from 'react'
 import productImg from '../../images/product.png'
 import './helpers.scss'
-const Product = () => {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCartPlus, faEye, faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons'
+const Product = (props) => {
     return (
         <div className='product'>
             <div className='img-box'>
                 <img src={productImg} alt=''/>
                 <div className='options'>
-                    <span><i className='fas fa-eye'></i></span>
-                    <span><i className='fas fa-cart-plus'></i></span>
-                    <span><i className='far fa-heart'></i></span>
+                    <span><FontAwesomeIcon icon={faEye}/></span>
+                    <span><FontAwesomeIcon icon={faCartPlus}/></span>
+                    {props.fav? 
+                        <span><FontAwesomeIcon icon={faHeartBroken}/></span>: 
+                        <span><FontAwesomeIcon icon={faHeart}/></span>
+                    }
                 </div>
             </div>
             <div className='product-info'>
