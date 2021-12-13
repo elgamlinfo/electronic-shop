@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import ProfileImg from '../../images/person.webp'
 import './profile-aside.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser,faShoppingBag,faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faUser,faShoppingBag,faHeart,faBars } from '@fortawesome/free-solid-svg-icons'
+
+
+
 const ProfieAside = () => {
+    const [active, setActive] = useState('');
+
+    function toggleHandler() {
+        active==="active"?
+        setActive(''):
+        setActive('active')
+    }
+
     return (
-        <div className='profile_aside'>
+        <div className={`profile_aside ${active}`}>
             <div className='aside_head'>
                 <img src={ProfileImg} alt=''/>
                 <h1>John Doe</h1>
@@ -25,6 +36,7 @@ const ProfieAside = () => {
                     <Link to='/profile/favurite'>favurite</Link>
                 </div>
             </div>
+            <button className='toggle_menu_btn' onClick={toggleHandler}><FontAwesomeIcon icon={faBars}/></button>
         </div>
     )
 }
