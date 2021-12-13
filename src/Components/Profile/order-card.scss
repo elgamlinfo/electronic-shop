@@ -63,6 +63,9 @@
                     white-space: nowrap;
                     color: $base-color;
                     font-weight: 400;
+                    @media only screen and (max-width: $sm){
+                        left: -25%;
+                    }
                 }
             }
             &:nth-of-type(2) {
@@ -76,6 +79,12 @@
                     color: $base-color;
                     font-weight: 400;
                 }
+                @media only screen and (max-width: $sm){
+                    left: 42%;
+                    &::before {
+                        left: -14%;
+                    }
+                }
             }
             &:last-of-type {
                 right: -20px;
@@ -87,6 +96,17 @@
                     white-space: nowrap;
                     color: $base-color;
                     font-weight: 400;
+                }
+                @media only screen and (max-width: $sm){
+                    right: -7%;
+                    &::before {
+                        left: -26%;
+                    }
+                }
+            }
+            &::before {
+                @media only screen and (max-width: $sm){
+                    font-size: 12px;
                 }
             }
         }
@@ -100,6 +120,9 @@
         justify-content: space-between;
         align-items: center;
         gap: 20px;
+        @media only screen and (max-width: $sm){
+            flex-wrap: wrap;
+        }
     }
     .cansel_btn {
         background: #ff4a4a;
