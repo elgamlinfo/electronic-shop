@@ -5,6 +5,9 @@
     width: 20%;
     height: inherit;
     background: $base-color;
+    @media only screen and (max-width: $sm){
+        display: none;
+    }
     .aside_head {
         width: 100%;
         padding: 20px;

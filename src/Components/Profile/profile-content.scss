@@ -3,6 +3,9 @@
     height: calc(100vh - 74.78px);
     background-color: #f1f1f1;
     padding: 15px;
+    @media only screen and (max-width: $sm){
+        height: auto;
+    }
     .titl {
         color: $base-color;
         margin-bottom: 5px;
@@ -17,17 +20,32 @@
         height: calc(100% - 31.53px);
         border-radius: 10px;
         box-shadow: 0 0 10px #ccc;
+        @media only screen and (max-width: $sm){
+            height: auto;
+            padding: 20px;
+        }
         form {
             display: block;
             width: 70%;
             margin: 0px auto;
+            @media only screen and (max-width: $sm){
+                width: 100%;
+            }
             .row {
                 display: flex;
                 justify-content: space-between;
                 width: 100%;
                 margin-bottom: 40px;
+                @media only screen and (max-width: $sm){
+                    flex-wrap: wrap;
+                    margin-bottom: 15px;
+                }
                 .input_group{
                     width: 40%;
+                    @media only screen and (max-width: $sm){
+                        width: 100%;
+                        margin-bottom: 15px;
+                    }
                     label {
                         display: block;
                         color: $base-color;

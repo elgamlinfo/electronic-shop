@@ -1,6 +1,10 @@
+@import '../../Components/sass/variables';
 .profile{
     display: flex;
     .content {
         width: 80%;
+        @media only screen and (max-width: $sm){
+            width: 100%;
+        }
     }
 }
