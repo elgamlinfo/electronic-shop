@@ -31,10 +31,10 @@ const App = () => {
     }
     return (
         <Fragment>
-            <Loading loading ={loading}/>
-            <Navbar cartClickHunler = {cartClickHunler}/>
-            <AsideCart clicked={cartClicked} cartClickHunler = {cartClickHunler}/>
                 <BrowserRouter>
+                <Loading loading ={loading}/>
+                <Navbar cartClickHunler = {cartClickHunler}/>
+                <AsideCart clicked={cartClicked} cartClickHunler = {cartClickHunler}/>
                     <Routes>
                         <Route  path='/' element={<Home/>}/>
                         <Route  path='/signup' element={<SignUp />}/>
@@ -48,8 +48,8 @@ const App = () => {
                         <Route  path='/allproducts' element={<AllProducts />}/>
                         <Route  path='/checkout' element={<CheckOut/>}/>
                     </Routes>
+                    <Footer />
                 </BrowserRouter>
-            <Footer />
         </Fragment>
     )
 }
