@@ -17,7 +17,7 @@ const Navbar = (props) => {
             window.location.pathname === "/signup"?{background:"#f1f1f1"}:
             {background:"#fff"}   }>
             <div className='container'>
-                <h1 className='logo'>shop logo</h1>
+                <h1 className='logo'><Link to="/">shop logo</Link></h1>
                 <div className={`search_over ${active}`}>
                     <button className='toggle-close' onClick={_ => toggleHundel()}><FontAwesomeIcon icon={faTimes}/></button>
                     <div className="search-box">
@@ -28,7 +28,7 @@ const Navbar = (props) => {
                 <div className='options'>
                     <button className='search-tog' aria-label='search-tog' onClick={_ => toggleHundel()}><FontAwesomeIcon icon={faSearch}/></button>
                     <button className='shop-cart' aria-label='cart-btn' onClick={() => props.cartClickHunler()}><FontAwesomeIcon icon={faShoppingBag}/></button>
-                    <button className='shop-fav' aria-label='fav-btn' ><FontAwesomeIcon icon={faHeart}/></button>
+                    <Link to='/profile/favurite' className='shop-fav' aria-label='fav-btn' ><FontAwesomeIcon icon={faHeart}/></Link>
                     <div className='profile_menu'>
                         <img src={Image} alt=''/>
                         <div className='dorp_down_menu'>
