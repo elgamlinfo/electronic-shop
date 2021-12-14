@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './navbar.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart,faSearch,faShoppingBag, faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -28,7 +29,27 @@ const Navbar = (props) => {
                     <button className='search-tog' aria-label='search-tog' onClick={_ => toggleHundel()}><FontAwesomeIcon icon={faSearch}/></button>
                     <button className='shop-cart' aria-label='cart-btn' onClick={() => props.cartClickHunler()}><FontAwesomeIcon icon={faShoppingBag}/></button>
                     <button className='shop-fav' aria-label='fav-btn' ><FontAwesomeIcon icon={faHeart}/></button>
-                    <img src={Image} alt=''/>
+                    <div className='profile_menu'>
+                        <img src={Image} alt=''/>
+                        <div className='dorp_down_menu'>
+                            <ul>
+                                <li>
+                                    <Link to='/profile'>my profile</Link>
+                                </li>
+                                <li>
+                                    <Link to="/checkout">cart</Link>
+                                </li>
+                                <li>
+                                    <Link to="/profile/orders">orders</Link>
+                                </li>
+                                <li>
+                                    <Link to="/profile/favurite">favorites</Link>
+                                </li>
+                            </ul>
+                            <hr />
+                            <Link className="register" to='/signup'>register</Link>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
