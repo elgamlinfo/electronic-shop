@@ -1,19 +1,17 @@
 import React from 'react'
+import {useSelector} from 'react-redux'
 import './footer.scss'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faGem,faPrayingHands,faCertificate,faThumbsUp,faTruckMoving } from '@fortawesome/free-solid-svg-icons'
+
+
 const Footer = () => {
+    const color  = useSelector(state => state.footerColor.color);
     return (
         <div className="footer">
             <div 
             className='round-shape' 
-            style={
-                window.location.pathname === "/login"?{background:"#f1f1f1"}:
-                window.location.pathname === "/signup"?{background:"#f1f1f1"}:
-                window.location.pathname === "/profile"?{background:"#000000", height: "10px"}:
-                window.location.pathname === "/profile/orders"?{background:"#000000", height: "10px"}:
-                window.location.pathname === "/profile/favurite"?{background:"#000000", height: "10px"}:
-                {background:"#fff"}}></div>
+            style={{background: color}}></div>
             <div className='footer-content'>
                 <div className='services'>
                     <div className='serv-card'>

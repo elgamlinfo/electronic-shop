@@ -3,16 +3,19 @@ import Loading from '../../Components/Loading/Loading';
 import AsideFilter from '../../Components/AsideFilter/AsideFilter';
 import ProductsSide from '../../Components/ProductsSide/ProductsSide';
 import './allproducts.scss';
-
+import {useDispatch} from 'react-redux'
+import {footerActions} from '../../Store/FooterSlice'
 
 const AllProducts = () => {
     const [loading, setLoading] = useState(true);
+    const dispatch = useDispatch();
     useEffect(_=> {
         setLoading(true);
+        dispatch(footerActions.setFooterColor({color: "#ffffff"}))
         setTimeout(() => {
             setLoading(false);
         },2000)
-    },[])
+    },[dispatch])
     return (
         <>
         <Loading loading ={loading}/>

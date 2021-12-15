@@ -2,15 +2,21 @@ import React,{useState,useEffect} from 'react'
 import CheckOutProdSide from "../../Components/CheckOutProdSide/CheckOutProdSide"
 import CardSide from '../../Components/CardSide/CardSide';
 import Loading from '../../Components/Loading/Loading';
-import './checkout.scss';   
+import './checkout.scss'; 
+import {useDispatch} from 'react-redux'
+import {footerActions} from '../../Store/FooterSlice'  
 const CheckOut = () => {
+    const dispatch = useDispatch();
     const [loading, setLoading] = useState(true);
+
     useEffect(_=> {
         setLoading(true);
+        dispatch(footerActions.setFooterColor({color: "#ffffff"}))
         setTimeout(() => {
             setLoading(false);
         },2000)
-    },[])
+    },[dispatch])
+
     return (
         <>
             <Loading loading ={loading}/>
