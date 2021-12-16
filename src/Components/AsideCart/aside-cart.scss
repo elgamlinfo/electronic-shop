@@ -45,7 +45,22 @@
         .cart-products{
             height: 80%;
             padding-top: 20px;
-            //overflow-y: scroll;
+            overflow-y: scroll;
+            /* width */
+            &::-webkit-scrollbar {
+                width: 7px;
+            }
+            
+            /* Track */
+            &::-webkit-scrollbar-track {
+                background: $base-color;
+            }
+            
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+                background: $purp-color;
+                border-radius: 5px;
+            }
         }
         .checkout{
             height: 15%;
