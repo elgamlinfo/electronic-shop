@@ -142,10 +142,6 @@
                     border-radius: 5px;
                     background: #fff;
                     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-                    // @media only screen and (max-width: $sm) {
-                    //     left: -175px !important;
-                    //     border-radius: 5px 0px 5px 5px;
-                    // }
                     ul {
                         list-style: none;
                         margin-bottom: 8px;
@@ -197,9 +193,6 @@
                         bottom: 100%;
                         right: 4px;
                         filter: drop-shadow(0px -8px 4px rgba(0, 0, 0, 0.2));
-                        // @media only screen and (max-width: $sm) {
-                        //     right: 0px;
-                        // }
                     }
                 }
                 &:hover {
