@@ -23,7 +23,7 @@ const Login = () => {
         dispatch(footerActions.setFooterColor({color: "#f1f1f1"}))
         setTimeout(() => {
             setLoading(false);
-        },2000)
+        },500)
     },[dispatch])
     return (
         <div>

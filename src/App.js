@@ -1,8 +1,7 @@
-import React, { useState,useEffect, Fragment } from 'react'
+import React, { useState, Fragment } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AsideCart from './Components/AsideCart/AsideCart';
 import Footer from './Components/Footer/Footer';
-import Loading from './Components/Loading/Loading';
 import Navbar from './Components/Navbar/Navbar';
 import AllProducts from './Pages/AllProdusts/AllProducts';
 import CheckOut from './Pages/CheckOut/CheckOut';
@@ -18,21 +17,14 @@ import Favurite from './Components/Profile/Favurite'
 
 const App = () => {
     const [cartClicked, setCartClick] = useState(false);
-    const [loading, setLoading] = useState(true);
     const cartClickHunler = () => {
         setCartClick((prev) => !prev);
     }
 
-    useEffect(_=> {
-        setLoading(true);
-    },[])
-    window.onload = () => {
-        setLoading(false);
-    }
+
     return (
         <Fragment>
                 <BrowserRouter>
-                <Loading loading ={loading}/>
                 <Navbar cartClickHunler = {cartClickHunler}/>
                 <AsideCart clicked={cartClicked} cartClickHunler = {cartClickHunler}/>
                     <Routes>

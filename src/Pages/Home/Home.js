@@ -15,7 +15,7 @@ const Home = () => {
         dispatch(footerActions.setFooterColor({color: "#ffffff"}))
         setTimeout(() => {
             setLoading(false);
-        },2000)
+        },500)
     },[dispatch])
     return (
         <div>
