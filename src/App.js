@@ -1,8 +1,5 @@
 import React, { useState, Fragment } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import AsideCart from './Components/AsideCart/AsideCart';
-import Footer from './Components/Footer/Footer';
-import Navbar from './Components/Navbar/Navbar';
 import AllProducts from './Pages/AllProdusts/AllProducts';
 import CheckOut from './Pages/CheckOut/CheckOut';
 import Home from './Pages/Home/Home'
@@ -13,34 +10,33 @@ import Profile from './Pages/Profile/Profile'
 import ProfileContent from './Components/Profile/ProfileContent'
 import Orders from './Components/Profile/Orders'
 import Favurite from './Components/Profile/Favurite'
+import PageNotFound from './Pages/PageNotFound/PageNotFound';
+import Index from './Pages/Index/Index';
+import Dashboard from './Pages/Dashboard/Dashboard';
 
 
 const App = () => {
-    const [cartClicked, setCartClick] = useState(false);
-    const cartClickHunler = () => {
-        setCartClick((prev) => !prev);
-    }
-
-
     return (
         <Fragment>
                 <BrowserRouter>
-                <Navbar cartClickHunler = {cartClickHunler}/>
-                <AsideCart clicked={cartClicked} cartClickHunler = {cartClickHunler}/>
                     <Routes>
-                        <Route  path='/' element={<Home/>}/>
-                        <Route  path='/signup' element={<SignUp />}/>
-                        <Route  path='/login' element={<Login/>}/>
-                        <Route  path='/product' element={<ShowProduct />}/>
-                        <Route  path='/profile' element={<Profile />}>
-                            <Route  index element={<ProfileContent />}/>
-                            <Route  path="orders" element={<Orders />}/>
-                            <Route  path="favurite" element={<Favurite />}/>
+                        <Route   path='/' element={<Index/>}>
+                            <Route  index element={<Home />}/>
+                            <Route  path='signup' element={<SignUp />}/>
+                            <Route  path='login' element={<Login/>}/>
+                            <Route  path='product' element={<ShowProduct />}/>
+                            <Route  path='profile' element={<Profile />}>
+                                <Route  index element={<ProfileContent />}/>
+                                <Route  path="orders" element={<Orders />}/>
+                                <Route  path="favurite" element={<Favurite />}/>
+                            </Route>
+                            <Route  path='allproducts' element={<AllProducts />}/>
+                            <Route  path='checkout' element={<CheckOut/>}/>
                         </Route>
-                        <Route  path='/allproducts' element={<AllProducts />}/>
-                        <Route  path='/checkout' element={<CheckOut/>}/>
+                        <Route path='/dashboard' element={<Dashboard />}>
+                        </Route>
+                        <Route path='*' element={<PageNotFound />}/>
                     </Routes>
-                    <Footer />
                 </BrowserRouter>
         </Fragment>
     )
