@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AllProducts from './Pages/AllProdusts/AllProducts';
 import CheckOut from './Pages/CheckOut/CheckOut';

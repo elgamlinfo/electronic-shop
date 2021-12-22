@@ -6,8 +6,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    img{
-        display: block;
-        width: 40%;
+    .container {
+        text-align: center;
+        width: 100%;
+        img{
+            display: block;
+            width: 40%;
+            margin: 0 auto;
+        }
+        a {
+            display: block;
+            width: 150px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #fff;
+            background-color: $base-color;
+            padding: 10px 30px;
+            margin: 0 auto;
+            margin-top: 30px;
+            transition: all 0.2s linear;
+            &:hover {
+                background: $purp-color;
+            }
+        }
     }
 }
