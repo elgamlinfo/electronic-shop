@@ -13,7 +13,8 @@ import Favurite from './Components/Profile/Favurite'
 import PageNotFound from './Pages/PageNotFound/PageNotFound';
 import Index from './Pages/Index/Index';
 import Dashboard from './Pages/Dashboard/Dashboard';
-
+import DashboardContent from './Components/Dashboard/DashboardContent';
+import Users from './Components/Dashboard/Users';
 
 const App = () => {
     return (
@@ -34,6 +35,8 @@ const App = () => {
                             <Route  path='checkout' element={<CheckOut/>}/>
                         </Route>
                         <Route path='/dashboard' element={<Dashboard />}>
+                            <Route  index element={<DashboardContent />}/>
+                            <Route path='/dashboard/users' element={<Users />}/>
                         </Route>
                         <Route path='*' element={<PageNotFound />}/>
                     </Routes>

@@ -1,0 +1,29 @@
+@import '../sass/variables';
+
+.dash_info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 20px 0px;
+    .dash_card {
+        background-color: $gray-color;
+        color: $base-color;
+        text-align: center;
+        width: calc(100% / 6);
+        padding: 10px;
+        border-radius: 5px;
+        span {
+            font-size: 40px;
+            color: $purp-color;
+        }
+        h3 {
+            font-size: 18px;
+            text-transform: capitalize;
+        }
+        p {
+            font-size: 20px;
+            margin: 0;
+        }
+    }
+}

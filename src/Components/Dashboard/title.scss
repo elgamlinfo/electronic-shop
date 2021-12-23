@@ -1,0 +1,14 @@
+@import '../sass/variables';
+
+
+.dash_title {
+    background-color: $base-color;
+    padding: 5px;
+    h1 {
+        font-size: 16px;
+        margin: 0;
+        color: $gray-color;
+        font-weight: 400;
+        text-transform: capitalize;
+    }
+}

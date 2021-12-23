@@ -1,0 +1,84 @@
+@import '../sass/variables';
+
+.profile_aside {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    transition: all 0.1s linear;
+    .aside_head {
+        width: 100%;
+        padding: 20px;
+        padding-bottom: 0;
+        img{ 
+            display: block;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin: 10px auto;
+        }
+        h1 {
+            display: block;
+            text-align: center;
+            font-size: 22px;
+            color: #fff;
+            text-transform: capitalize;
+            font-weight: 500;
+            margin: 0;
+        }
+        .jop-title {
+            color: #8c8c8c;
+            font-size: 16px;
+            font-weight: 400;
+            text-align: center;
+            margin: 0;
+            text-transform: capitalize;
+        
+        }
+    }
+    .aside_navs {
+        margin-top: 20px;
+        .navs{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: 0 auto;
+            padding: 10px 0px;
+            border-bottom: 1px solid #8c8c8c;
+            color: #fff !important;
+            font-size: 20px;
+            &:first-of-type {
+                border-top: 1px solid #8c8c8c;
+            }
+            span {
+                width: 40%;
+                text-align: right;
+                padding-right: 15px;
+            }
+            a {
+                width: 60%;
+                color: #fff !important;
+                text-decoration: none;
+                padding: 0;
+                text-transform: capitalize;
+                font-weight: 300;
+                font-size: 17px;
+            }
+        }
+    }
+    .toggle_menu_btn {
+        position: absolute;
+        right: -35px;
+        top: 80px;
+        background-color: $base-color;
+        color: $gray-color;
+        width: 100px;
+        text-align: right;
+        padding: 5px 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        border: none;
+        display: none;
+    }
+}

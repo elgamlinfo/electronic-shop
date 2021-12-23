@@ -1,0 +1,49 @@
+@import '../sass/variables';
+.users {
+    .users_table {
+        border-collapse: collapse;
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 20px;
+        tr,th,td {
+            border: 1px solid #dddddd;
+        }
+        thead {
+            background-color: $base-color;
+            tr{
+                th{
+                    padding: 5px;
+                    color: #fff;
+                    font-size: 16px;
+                    font-weight: 400;
+                    text-transform: capitalize;
+                }
+            }
+        }
+        tbody {
+            tr {
+                td {
+                    padding: 5px;
+                    text-align: center;
+                    text-transform: capitalize;
+                    img{
+                        display: block;
+                        width: 60px;
+                        margin: 0 auto;
+                    }
+                    button {
+                        border: none;
+                        background-color: rgb(245, 52, 52);
+                        color: #fff;
+                        padding: 5px 15px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                    }
+                }
+                &:nth-child(even) {
+                    background-color: $gray-color;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+@import '../../Components/sass/variables';
+
+
+.dash_container {
+    display: flex;
+    .dash_aside{
+        width: 20%;
+    }
+    .dash_content {
+        width: 80%;
+    }
+}
