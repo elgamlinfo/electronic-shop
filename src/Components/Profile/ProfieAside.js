@@ -17,7 +17,7 @@ const ProfieAside = () => {
     }
 
     return (
-        <div className={`profile_aside ${active}`}>
+        <div className={`profil_aside ${active}`}>
             <div className='aside_head'>
                 <img src={ProfileImg} alt=''/>
                 <h1>John Doe</h1>

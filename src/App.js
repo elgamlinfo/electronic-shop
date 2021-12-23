@@ -15,6 +15,7 @@ import Index from './Pages/Index/Index';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import DashboardContent from './Components/Dashboard/DashboardContent';
 import Users from './Components/Dashboard/Users';
+import Admins from './Components/Dashboard/Admins';
 
 const App = () => {
     return (
@@ -37,6 +38,7 @@ const App = () => {
                         <Route path='/dashboard' element={<Dashboard />}>
                             <Route  index element={<DashboardContent />}/>
                             <Route path='/dashboard/users' element={<Users />}/>
+                            <Route path='/dashboard/admins' element={<Admins />}/>
                         </Route>
                         <Route path='*' element={<PageNotFound />}/>
                     </Routes>
