@@ -17,6 +17,7 @@ import DashboardContent from './Components/Dashboard/DashboardContent';
 import Users from './Components/Dashboard/Users';
 import Admins from './Components/Dashboard/Admins';
 import Products from './Components/Dashboard/Products';
+import Category from './Components/Dashboard/Category';
 
 const App = () => {
     return (
@@ -40,6 +41,7 @@ const App = () => {
                             <Route  index element={<DashboardContent />}/>
                             <Route path='/dashboard/users' element={<Users />}/>
                             <Route path='/dashboard/admins' element={<Admins />}/>
+                            <Route path='/dashboard/category' element={<Category />}/>
                             <Route path='/dashboard/products' element={<Products />}/>
                         </Route>
                         <Route path='*' element={<PageNotFound />}/>
