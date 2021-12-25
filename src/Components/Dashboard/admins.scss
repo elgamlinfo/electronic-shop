@@ -2,6 +2,7 @@
 .admins{
     max-height: 100vh;
     overflow-y: scroll;
+    background-color: #f9f9f9;
     .profile_form_cont {
         display: flex;
         justify-content: center;
@@ -76,34 +77,48 @@
     }
     
     .users_table {
-        border-collapse: collapse;
+        border-spacing: 0 15px;
+    	border-collapse: separate;
         width: 90%;
         margin: 30px auto;
-        tr,th,td {
-            border: 1px solid #dddddd;
-        }
         thead {
-            background-color: $base-color;
             tr{
                 th{
+                    color: $base-color;
                     padding: 5px;
-                    color: #fff;
                     font-size: 16px;
-                    font-weight: 400;
+                    font-weight: 500;
                     text-transform: capitalize;
+                    text-align: left;
+                    &:last-of-type {
+                        text-align: center;
+                    }
                 }
             }
         }
         tbody {
             tr {
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                border-radius: 10px;
+                overflow: hidden;
+                vertical-align: middle;
+	            border: none;
                 td {
-                    padding: 5px;
-                    text-align: center;
+                    background-color: #fff; 
                     text-transform: capitalize;
+                    &:nth-child(1) {
+                        border-radius: 5px 0 0 5px;
+                        padding: 15px 20px;
+                    }
+                    &:last-of-type {
+                        text-align: center;
+                        border-radius: 0 5px 5px 0;
+                    }
                     img{
                         display: block;
                         width: 60px;
-                        margin: 0 auto;
+                        height: 60px;
+                        border-radius: 50%;
                     }
                     button {
                         border: none;
@@ -113,9 +128,6 @@
                         border-radius: 5px;
                         cursor: pointer;
                     }
-                }
-                &:nth-child(even) {
-                    background-color: $gray-color;
                 }
             }
         }

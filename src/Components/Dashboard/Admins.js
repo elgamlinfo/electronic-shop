@@ -50,7 +50,7 @@ const Admins = () => {
                         <th>email</th>
                         <th>mobile</th>
                         <th>address</th>
-                        <th>options</th>
+                        <th>actions</th>
                     </tr>
                 </thead>
                 <tbody>

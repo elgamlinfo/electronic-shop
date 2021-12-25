@@ -17,24 +17,20 @@ const ProfieAside = () => {
             </div>
             <div className='aside_navs'>
                 <div className='navs'>
-                    <span><FontAwesomeIcon icon={faTachometerAlt}/></span>
-                    <Link to='/dashboard'>dashboard</Link>
+                    
+                    <Link to='/dashboard'><span><FontAwesomeIcon icon={faTachometerAlt}/></span>dashboard</Link>
                 </div>
                 <div className='navs'>
-                    <span><FontAwesomeIcon icon={faUsers}/></span>
-                    <Link to='/dashboard/users'>Users</Link>
+                    <Link to='/dashboard/users'><span><FontAwesomeIcon icon={faUsers}/></span>Users</Link>
                 </div>
                 <div className='navs'>
-                    <span><FontAwesomeIcon icon={faUsersCog}/></span>
-                    <Link to='/dashboard/admins'>Admins</Link>
+                    <Link to='/dashboard/admins'><span><FontAwesomeIcon icon={faUsersCog}/></span>Admins</Link>
                 </div>
                 <div className='navs'>
-                    <span><FontAwesomeIcon icon={faShoppingBag}/></span>
-                    <Link to='/dashboard/products'>Products</Link>
+                    <Link to='/dashboard/products'><span><FontAwesomeIcon icon={faShoppingBag}/></span>Products</Link>
                 </div>
                 <div className='navs'>
-                    <span><FontAwesomeIcon icon={faShippingFast}/></span>
-                    <Link to='/dashboard/orders'>Orders</Link>
+                    <Link to='/dashboard/orders'><span><FontAwesomeIcon icon={faShippingFast}/></span>Orders</Link>
                 </div>
             </div>
             <button className='toggle_menu_btn'><FontAwesomeIcon icon={faBars}/></button>
