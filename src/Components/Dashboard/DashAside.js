@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import ProfileImg from '../../images/person.webp'
 import './dash-aside.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingBag,faBars, faTachometerAlt, faUsers, faUsersCog, faShippingFast } from '@fortawesome/free-solid-svg-icons'
+import { faShoppingBag,faBars, faTachometerAlt, faUsers, faUsersCog, faShippingFast, faList } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -25,6 +25,9 @@ const ProfieAside = () => {
                 </div>
                 <div className='navs'>
                     <Link to='/dashboard/admins'><span><FontAwesomeIcon icon={faUsersCog}/></span>Admins</Link>
+                </div>
+                <div className='navs'>
+                    <Link to='/dashboard/category'><span><FontAwesomeIcon icon={faList}/></span>categories</Link>
                 </div>
                 <div className='navs'>
                     <Link to='/dashboard/products'><span><FontAwesomeIcon icon={faShoppingBag}/></span>Products</Link>
