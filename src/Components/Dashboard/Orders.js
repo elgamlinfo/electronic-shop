@@ -1,11 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './orders.scss'
 import Title from './Title'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons'
+import ReqLoading from '../Loading/ReqLoading'
 const Orders = () => {
+    // eslint-disable-next-line
+    const [loading, setLoading] = useState(false);
     return (
         <div className='dash_orders'>
+            <ReqLoading loading={loading}/>
             <Title title='orders'/>
             <table className='orders_table'>
                 <thead>
