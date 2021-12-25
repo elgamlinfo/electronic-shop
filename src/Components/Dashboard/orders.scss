@@ -1,0 +1,86 @@
+@import "../sass/variables";
+.dash_orders {
+    max-height: 100vh;
+    min-height: 100vh;
+    overflow-y: scroll;
+    background-color: #f9f9f9;
+    .orders_table {
+        border-spacing: 0 15px;
+        border-collapse: separate;
+        width: 90%;
+        margin: 30px auto;
+        thead {
+            tr {
+                th {
+                    color: $base-color;
+                    padding: 5px;
+                    font-size: 16px;
+                    font-weight: 500;
+                    text-transform: capitalize;
+                    text-align: left;
+                    &:last-of-type {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        tbody {
+            tr {
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                border-radius: 10px;
+                overflow: hidden;
+                vertical-align: middle;
+                border: none;
+                td {
+                    background-color: #fff;
+                    position: relative;
+                    text-transform: capitalize;
+                    &:nth-child(1) {
+                        border-radius: 5px 0 0 5px;
+                        padding: 15px 20px;
+                    }
+                    &:last-of-type {
+                        text-align: center;
+                        border-radius: 0 5px 5px 0;
+                    }
+                    img {
+                        display: block;
+                        width: 60px;
+                        height: 60px;
+                        border-radius: 50%;
+                    }
+                    button {
+                        border: none;
+                        color: $base-color;
+                        cursor: pointer;
+                        font-size: 17px;
+                    }
+                    .select {
+                        position: absolute;
+                        bottom: -12px;
+                        z-index: 999;
+                        left: 16px;
+                        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                        background: #fff;
+                        display: none;
+                    }
+                    span {
+                        color: #fff;
+                        padding: 5px;
+                        font-size: 14px;
+                        border-radius: 6px;
+                        &.placed {
+                            background: #6c757d;
+                        }
+                        &.transit {
+                            background: #007bff;
+                        }
+                        &.completed {
+                            background: #28a745;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

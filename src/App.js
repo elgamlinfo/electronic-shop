@@ -18,6 +18,7 @@ import Users from './Components/Dashboard/Users';
 import Admins from './Components/Dashboard/Admins';
 import Products from './Components/Dashboard/Products';
 import Category from './Components/Dashboard/Category';
+import DashboardOrders from './Components/Dashboard/Orders';
 
 const App = () => {
     return (
@@ -43,6 +44,7 @@ const App = () => {
                             <Route path='/dashboard/admins' element={<Admins />}/>
                             <Route path='/dashboard/category' element={<Category />}/>
                             <Route path='/dashboard/products' element={<Products />}/>
+                            <Route path='/dashboard/orders' element={<DashboardOrders />}/>
                         </Route>
                         <Route path='*' element={<PageNotFound />}/>
                     </Routes>
