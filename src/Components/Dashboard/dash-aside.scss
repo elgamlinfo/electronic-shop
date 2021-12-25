@@ -8,36 +8,41 @@
     transition: all 0.1s linear;
     .aside_head {
         width: 100%;
-        padding: 20px;
+        padding: 25px 0;
+        padding-left: 15px;
         padding-bottom: 0;
+        display: flex;
+        justify-content: left;
+        align-items: center;
         img{ 
             display: block;
-            width: 90px;
-            height: 90px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            margin: 10px auto;
         }
-        h1 {
-            display: block;
-            text-align: center;
-            font-size: 22px;
-            color: #fff;
-            text-transform: capitalize;
-            font-weight: 500;
-            margin: 0;
-        }
-        .jop-title {
-            color: #8c8c8c;
-            font-size: 16px;
-            font-weight: 400;
-            text-align: center;
-            margin: 0;
-            text-transform: capitalize;
-        
+        .head_info {
+            width: 70%;
+            padding-left: 10px;
+            h1 {
+                display: block;
+                font-size: 18px;
+                color: #fff;
+                text-transform: capitalize;
+                font-weight: 500;
+                margin: 0;
+            }
+            .jop-title {
+                color: #8c8c8c;
+                font-size: 16px;
+                font-weight: 400;
+                margin: 0;
+                text-transform: capitalize;
+            
+            }
         }
     }
     .aside_navs {
-        margin-top: 20px;
+        margin-top: 25px;
         .navs{
             display: flex;
             justify-content: center;
@@ -49,7 +54,7 @@
             font-size: 20px;
             a {
                 width: 100%;
-                color: #fff !important;
+                color: #fff;
                 text-decoration: none;
                 padding: 0;
                 text-transform: capitalize;
@@ -58,6 +63,15 @@
                 span {
                     padding: 15px;
                     color: $gray-color;
+                }
+                
+            }
+            &:last-of-type {
+                a{
+                    color: rgb(252, 21, 21) ;
+                    span {
+                        color: rgb(252, 21, 21) ;
+                    }
                 }
             }
         }

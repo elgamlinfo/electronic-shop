@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import ProfileImg from '../../images/person.webp'
 import './dash-aside.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingBag,faBars, faTachometerAlt, faUsers, faUsersCog, faShippingFast, faList } from '@fortawesome/free-solid-svg-icons'
+import { faShoppingBag,faBars, faTachometerAlt, faUsers, faUsersCog, faShippingFast, faList ,faSignOutAlt} from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -12,8 +12,10 @@ const ProfieAside = () => {
         <div className={`profile_aside`}>
             <div className='aside_head'>
                 <img src={ProfileImg} alt=''/>
-                <h1>John Doe</h1>
-                <p className='jop-title'>admin</p>
+                <div className='head_info'>
+                    <h1>John Doe</h1>
+                    <p className='jop-title'>admin</p>
+                </div>
             </div>
             <div className='aside_navs'>
                 <div className='navs'>
@@ -34,6 +36,9 @@ const ProfieAside = () => {
                 </div>
                 <div className='navs'>
                     <Link to='/dashboard/orders'><span><FontAwesomeIcon icon={faShippingFast}/></span>Orders</Link>
+                </div>
+                <div className='navs'>
+                    <Link to='/dashboard/orders'><span><FontAwesomeIcon icon={faSignOutAlt}/></span>Logout</Link>
                 </div>
             </div>
             <button className='toggle_menu_btn'><FontAwesomeIcon icon={faBars}/></button>
