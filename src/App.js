@@ -1,5 +1,7 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import {userSliceActions} from './Store/UserSlice'
 import AllProducts from './Pages/AllProdusts/AllProducts';
 import CheckOut from './Pages/CheckOut/CheckOut';
 import Home from './Pages/Home/Home'
@@ -21,6 +23,15 @@ import Category from './Components/Dashboard/Category';
 import DashboardOrders from './Components/Dashboard/Orders';
 
 const App = () => {
+    const dispatch = useDispatch()
+    useEffect(() => {
+        let user = localStorage.user;
+        if(user){
+            console.log(JSON.parse(user));
+            dispatch(userSliceActions.setUserData(JSON.parse(user)))
+            dispatch(userSliceActions.setIsAuth())
+        }
+    }, [dispatch])
     return (
         <Fragment>
                 <BrowserRouter>

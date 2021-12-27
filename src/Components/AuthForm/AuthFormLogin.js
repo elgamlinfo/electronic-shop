@@ -1,24 +1,30 @@
 import React, {useState} from 'react'
 import { Link, useNavigate  } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import axios from 'axios'
 import './authform.scss'
+import {userSliceActions} from '../../Store/UserSlice'
 import OAuthButton from '../Helpers/OAuthButton'
 import FormValid from './FormValid'
-const AuthForm = (props) => {
+const AuthFormLogin = (props) => {
     const navigate = useNavigate();
-    const [name, setName] = useState('')
+    const dispatch = useDispatch()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('');
     function submitHandler (e) {
         e.preventDefault();
         let data = {
-            name,
             email,
             password
         }
-        axios.post(`${process.env.REACT_APP_API_LINK}/user/register`,data)
+        axios.post(`${process.env.REACT_APP_API_LINK}/user/login`,data)
         .then(response => {
-            navigate('/login')
+            dispatch(userSliceActions.setIsAuth())
+            dispatch(userSliceActions.setUserData(response.data))
+            localStorage.setItem("user", JSON.stringify(response.data))
+            response.data.admin?
+            navigate('/dashboard'):
+            navigate('/')
         })
         .catch(error => {
             console.log(error);
@@ -30,13 +36,6 @@ const AuthForm = (props) => {
                 <h2 className='form_title'>welcome to our app</h2>
                 <OAuthButton />
                 <div className='or_line'>OR</div>
-                <input 
-                    type='text' 
-                    name='name'
-                    placeholder='your name here'
-                    value={name}
-                    onChange = {e => setName(e.target.value)}
-                />
                 <input 
                     type='email' 
                     name='email'
@@ -51,7 +50,7 @@ const AuthForm = (props) => {
                     value={password}
                     onChange = {e => setPassword(e.target.value)}
                 />
-                <button className='submit' onClick={(e) => submitHandler(e)}>signup</button>
+                <button className='submit' onClick={(e) => submitHandler(e)}>Login</button>
                 <p className='redir'>have an account ? <Link to="/login">login</Link></p>
             </form>
             <FormValid />
@@ -59,4 +58,4 @@ const AuthForm = (props) => {
     )
 }
 
-export default AuthForm
+export default AuthFormLogin

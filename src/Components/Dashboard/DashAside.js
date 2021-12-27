@@ -6,14 +6,14 @@ import { faShoppingBag,faBars, faTachometerAlt, faUsers, faUsersCog, faShippingF
 
 
 
-const ProfieAside = () => {
+const ProfieAside = (props) => {
 
     return (
         <div className={`profile_aside`}>
             <div className='aside_head'>
                 <img src={ProfileImg} alt=''/>
                 <div className='head_info'>
-                    <h1>John Doe</h1>
+                    <h1>{props.user.name}</h1>
                     <p className='jop-title'>admin</p>
                 </div>
             </div>
