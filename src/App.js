@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import {userSliceActions} from './Store/UserSlice'
+import {getUser} from './Store/UserSlice'
 import AllProducts from './Pages/AllProdusts/AllProducts';
 import CheckOut from './Pages/CheckOut/CheckOut';
 import Home from './Pages/Home/Home'
@@ -24,14 +24,20 @@ import DashboardOrders from './Components/Dashboard/Orders';
 
 const App = () => {
     const dispatch = useDispatch()
-    useEffect(() => {
-        let user = localStorage.user;
-        if(user){
-            console.log(JSON.parse(user));
-            dispatch(userSliceActions.setUserData(JSON.parse(user)))
-            dispatch(userSliceActions.setIsAuth())
+    // eslint-disable-next-line
+    function setUserStore() {
+        let token = localStorage.token;
+        if(token){
+            dispatch(getUser())
         }
-    }, [dispatch])
+    }
+
+    useEffect(() => {
+        setUserStore()
+    }, [setUserStore])
+
+
+
     return (
         <Fragment>
                 <BrowserRouter>

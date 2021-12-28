@@ -5,23 +5,31 @@ import './dashboard.scss'
 import { Outlet, useNavigate } from 'react-router-dom'
 
 const Dashboard = () => {
+    //eslint-disable-next-line
     const navigate = useNavigate()
-    const user = useSelector(state => state.user)
+    const loading = useSelector(state => state.user.loading)
+    const user = useSelector(state => state.user.user)
+    const isAuth = useSelector(state => state.user.isAuth)
+
+
     useEffect(() => {
-        if(!user.isAuth) {
+        if(!isAuth) {
             navigate('/login')
         }
-    }, [navigate,user.isAuth])
+    }, [navigate,isAuth])
     
     return (
+        <>
+            {loading?<div>looooooooooooood</div>:
         <div className='dash_container'>
             <div className='dash_aside'>
-                <DashAside user={user.user}/>
+                <DashAside user={user}/>
             </div>
             <div className="dash_content">
                 <Outlet />
             </div>
-        </div>
+        </div>}
+        </>
     )
 }
 

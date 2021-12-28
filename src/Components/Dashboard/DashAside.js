@@ -8,10 +8,12 @@ import { faShoppingBag,faBars, faTachometerAlt, faUsers, faUsersCog, faShippingF
 
 const ProfieAside = (props) => {
 
+    
+
     return (
         <div className={`profile_aside`}>
             <div className='aside_head'>
-                <img src={ProfileImg} alt=''/>
+                <img src={props.user.img?props.user.img:ProfileImg} alt=''/>
                 <div className='head_info'>
                     <h1>{props.user.name}</h1>
                     <p className='jop-title'>admin</p>
@@ -38,7 +40,7 @@ const ProfieAside = (props) => {
                     <Link to='/dashboard/orders'><span><FontAwesomeIcon icon={faShippingFast}/></span>Orders</Link>
                 </div>
                 <div className='navs'>
-                    <Link to='/dashboard/orders'><span><FontAwesomeIcon icon={faSignOutAlt}/></span>Logout</Link>
+                    <Link to='/dashboard/orders' ><span><FontAwesomeIcon icon={faSignOutAlt}/></span>Logout</Link>
                 </div>
             </div>
             <button className='toggle_menu_btn'><FontAwesomeIcon icon={faBars}/></button>

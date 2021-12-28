@@ -17,12 +17,12 @@ const AuthFormLogin = (props) => {
             email,
             password
         }
-        axios.post(`${process.env.REACT_APP_API_LINK}/user/login`,data)
+        axios.post(`${process.env.REACT_APP_API_LINK_DEV}/user/login`,data)
         .then(response => {
             dispatch(userSliceActions.setIsAuth())
-            dispatch(userSliceActions.setUserData(response.data))
-            localStorage.setItem("user", JSON.stringify(response.data))
-            response.data.admin?
+            dispatch(userSliceActions.setUserData(response.data.user))
+            localStorage.setItem("token", response.data.token)
+            response.data.user.admin?
             navigate('/dashboard'):
             navigate('/')
         })
