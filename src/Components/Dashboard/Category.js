@@ -1,25 +1,51 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './category.scss'
 import Title from './Title'
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
+import axios from 'axios';
 
 
 const Category = () => {
     const [category, setCategory] = useState('');
     const [icon, setIcon] = useState('');
-
+    const [data, setData] = useState([]);
     const submitHandler = (e) => {
         e.preventDefault();
         let data = {
-            category,
+            name:category,
             icon
         }
-        console.log(data);
-        NotificationManager.success('add successfully', 'success', 3000)
+        axios.post(`${process.env.REACT_APP_API_LINK_DEV}/category/add`, data, {
+            headers: {
+                Authorization:`Bearer ${localStorage.token}`
+            }
+        })
+        .then(res => {
+            setData(data => data.concat(res.data))
+            NotificationManager.success('category add successfully', 'success', 3000)
+            setCategory('')
+            setIcon('')
+        })
+        .catch(error => {
+            console.log(error);
+        })
     }
 
-    
+    useEffect(_=> {
+        axios.get(`${process.env.REACT_APP_API_LINK_DEV}/category`, {
+            headers: {
+                Authorization:`Bearer ${localStorage.token}`
+            }
+        })
+        .then( res => {
+            setData(res.data);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    },[])
+
     return (
         <div className='dash_category'>
             <NotificationContainer />
@@ -60,38 +86,18 @@ const Category = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>laptop</td>
-                        <td>laptop</td>
-                        <td>
-                            <button className='edit'>edit</button>
-                            <button className='delete'>delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>pc</td>
-                        <td>pc</td>
-                        <td>
-                            <button className='edit'>edit</button>
-                            <button className='delete'>delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>mobile</td>
-                        <td>mobile</td>
-                        <td>
-                            <button className='edit'>edit</button>
-                            <button className='delete'>delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>keyboard</td>
-                        <td>keyboard</td>
-                        <td>
-                            <button className='edit'>edit</button>
-                            <button className='delete'>delete</button>
-                        </td>
-                    </tr>
+                    {data.map(categ => {
+                        return(
+                            <tr key={categ._id}>
+                                <td>{categ.name}</td>
+                                <td>{categ.icon}</td>
+                                <td>
+                                    <button className='edit'>edit</button>
+                                    <button className='delete'>delete</button>
+                                </td>
+                            </tr>
+                        )
+                    })}
                 </tbody>
             </table>
         </div>

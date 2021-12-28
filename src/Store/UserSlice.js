@@ -6,7 +6,6 @@ import axios from "axios";
 let initialState = {
     user:undefined,
     isAuth: false,
-    authToken:undefined,
     loading:true
 } 
 
@@ -43,6 +42,11 @@ const userSlice = createSlice({
         },
         setIsAuth(state, action) {
             state.isAuth = !state.isAuth
+            state.loading = false
+        },
+        logout(state) {
+            // state.user = undefined
+            state.isAuth = false
         }
     }
 })

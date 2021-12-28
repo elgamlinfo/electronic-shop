@@ -10,13 +10,11 @@ const Dashboard = () => {
     const loading = useSelector(state => state.user.loading)
     const user = useSelector(state => state.user.user)
     const isAuth = useSelector(state => state.user.isAuth)
-
-
     useEffect(() => {
-        if(!isAuth) {
+        if(!isAuth&&!loading) {
             navigate('/login')
         }
-    }, [navigate,isAuth])
+    }, [navigate,isAuth, loading])
     
     return (
         <>

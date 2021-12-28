@@ -19,9 +19,9 @@ const AuthFormLogin = (props) => {
         }
         axios.post(`${process.env.REACT_APP_API_LINK_DEV}/user/login`,data)
         .then(response => {
-            dispatch(userSliceActions.setIsAuth())
             dispatch(userSliceActions.setUserData(response.data.user))
             localStorage.setItem("token", response.data.token)
+            dispatch(userSliceActions.setIsAuth())
             response.data.user.admin?
             navigate('/dashboard'):
             navigate('/')

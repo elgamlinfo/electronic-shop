@@ -1,14 +1,34 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import { userSliceActions } from '../../Store/UserSlice'
 import ProfileImg from '../../images/person.webp'
 import './dash-aside.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingBag,faBars, faTachometerAlt, faUsers, faUsersCog, faShippingFast, faList ,faSignOutAlt} from '@fortawesome/free-solid-svg-icons'
+import { useDispatch } from 'react-redux'
 
 
 
 const ProfieAside = (props) => {
-
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     
+    const logoutHandler = e => {
+        e.preventDefault();
+        axios.post(`${process.env.REACT_APP_API_LINK_DEV}/user/logout`, {},{
+            headers: {
+                Authorization:  `Bearer ${localStorage.token}`
+            }
+        })
+        .then(response => {
+            localStorage.clear()
+            dispatch(userSliceActions.logout())
+            navigate('/login')
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
 
     return (
         <div className={`profile_aside`}>
@@ -40,7 +60,7 @@ const ProfieAside = (props) => {
                     <Link to='/dashboard/orders'><span><FontAwesomeIcon icon={faShippingFast}/></span>Orders</Link>
                 </div>
                 <div className='navs'>
-                    <Link to='/dashboard/orders' ><span><FontAwesomeIcon icon={faSignOutAlt}/></span>Logout</Link>
+                    <Link to='/dashboard/orders' onClick={e => logoutHandler(e)}><span><FontAwesomeIcon icon={faSignOutAlt}/></span>Logout</Link>
                 </div>
             </div>
             <button className='toggle_menu_btn'><FontAwesomeIcon icon={faBars}/></button>

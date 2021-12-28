@@ -1,54 +1,157 @@
-import React from 'react'
-import './products.scss'
-import Title from './Title'
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import ReqLoading from "../Loading/ReqLoading"
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+import "./products.scss";
+import Title from "./Title";
 
 const Products = () => {
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [company, setCompany] = useState('');
+    const [category, setCategory] = useState('');
+    const [specifications, setSpecifications] = useState('');
+    const [photos, setPhotos] = useState();
+    
+    const addProductHandler = (e) => {
+        e.preventDefault()
+        setLoading(true)
+        let formData = new FormData()
+        let productData = {
+            title,
+            description,
+            company,
+            category,
+            specifications,
+        }
+        for ( let key in productData ) {
+            formData.append(key, productData[key]);
+        }
+        [...photos].forEach(photo => {
+            formData.append("photos", photo);
+        });
+        axios
+            .post(`${process.env.REACT_APP_API_LINK_DEV}/product/add`,formData ,{
+                headers: {
+                    Authorization: `Bearer ${localStorage.token}`,
+                    'Content-Type': 'multipart/form-data'
+                },
+            })
+            .then((res) => {
+                NotificationManager.success('product added successfully', 'success', 3000)
+                setLoading(false)
+            })
+            .catch((error) => {
+                console.log(error);
+        });
+    }
+    
+    useEffect((_) => {
+        axios
+            .get(`${process.env.REACT_APP_API_LINK_DEV}/category`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.token}`,
+                },
+            })
+            .then((res) => {
+                setData(res.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
+
     return (
-        <div className='dash_products'>
-            <Title title="products"/>
-            <div className='product_form_cont'>
+        <div className="dash_products">
+            <ReqLoading loading={loading}/>
+            <NotificationContainer />
+            <Title title="products" />
+            <div className="product_form_cont">
                 <form>
-                    <div className='row'>
-                        <div className='input_group'>
-                            <label htmlFor='title'>title</label>
-                            <input type='text' name='title'id='title'/>
+                    <div className="row">
+                        <div className="input_group">
+                            <label htmlFor="title">title</label>
+                            <input 
+                                type="text" 
+                                name="title" 
+                                id="title" 
+                                value={title} 
+                                onChange={e => setTitle(e.target.value)}
+                            />
                         </div>
-                        <div className='input_group'>
+                        <div className="input_group">
                             <label htmlFor="description">description</label>
-                            <input type='text' name='description'id='description'/>
+                            <input
+                                type="text"
+                                name="description"
+                                id="description"
+                                value={description} 
+                                onChange={e => setDescription(e.target.value)}
+                            />
                         </div>
                     </div>
-                    <div className='row'>
-                        <div className='input_group'>
-                            <label htmlFor='company'>company</label>
-                            <input type='text' name='company'id='company'/>
+                    <div className="row">
+                        <div className="input_group">
+                            <label htmlFor="company">company</label>
+                            <input 
+                                type="text" 
+                                name="company" 
+                                id="company" 
+                                value={company} 
+                                onChange={e => setCompany(e.target.value)}
+                            />
                         </div>
-                        <div className='input_group'>
-                            <label htmlFor='category'>category</label>
-                            <select name='category'>
-                                <option value='apple'>test1</option>
-                                <option value='apple'>test2</option>
-                                <option value='apple'>test3</option>
+                        <div className="input_group">
+                            <label htmlFor="category">category</label>
+                            <select 
+                                name="category"
+                                value={category} 
+                                onChange={e => setCategory(e.target.value)}
+                            >
+                                {data.map((categ) => {
+                                    return (
+                                        <option
+                                            value={categ.name}
+                                            key={categ._id}
+                                        >
+                                            {categ.name}
+                                        </option>
+                                    );
+                                })}
                             </select>
                         </div>
                     </div>
-                    <div className='row'>
-                        <div className='input_group'>
-                            <label htmlFor='specifications'>specifications</label>
-                            <textarea name='specifications' id='specifications'>
-
-                            </textarea>
+                    <div className="row">
+                        <div className="input_group">
+                            <label htmlFor="specifications">
+                                specifications
+                            </label>
+                            <textarea
+                                name="specifications"
+                                id="specifications"
+                                value={specifications} 
+                                onChange={e => setSpecifications(e.target.value)}
+                            ></textarea>
                         </div>
-                        <div className='input_group'>
-                            <label htmlFor='images'>image</label>
-                            <input type='file' name='image' id='image' multiple/>
+                        <div className="input_group">
+                            <label htmlFor="images">image</label>
+                            <input
+                                type="file"
+                                name="image"
+                                id="image"
+                                onChange={e => setPhotos(e.target.files)}
+                                multiple
+                            />
                         </div>
                     </div>
-                    <button>save</button>
+                    <button onClick={e => addProductHandler(e)}>save</button>
                 </form>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Products
+export default Products;
