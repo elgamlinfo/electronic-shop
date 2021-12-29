@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ReqLoading from "../Loading/ReqLoading"
+import Loading from "../Loading/Loading"
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 import "./products.scss";
@@ -8,6 +9,7 @@ import Title from "./Title";
 
 const Products = () => {
     const [data, setData] = useState([]);
+    const [reqloading, setReqLoading] = useState(false);
     const [loading, setLoading] = useState(false);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -18,7 +20,7 @@ const Products = () => {
     
     const addProductHandler = (e) => {
         e.preventDefault()
-        setLoading(true)
+        setReqLoading(true)
         let formData = new FormData()
         let productData = {
             title,
@@ -42,14 +44,15 @@ const Products = () => {
             })
             .then((res) => {
                 NotificationManager.success('product added successfully', 'success', 3000)
-                setLoading(false)
+                setReqLoading(false)
             })
             .catch((error) => {
                 console.log(error);
         });
     }
     
-    useEffect((_) => {
+    useEffect(_ => {
+        setLoading(true)
         axios
             .get(`${process.env.REACT_APP_API_LINK_DEV}/category`, {
                 headers: {
@@ -59,6 +62,7 @@ const Products = () => {
             .then((res) => {
                 setData(res.data);
                 setCategory(res.data[0].name)
+                setLoading(false)
             })
             .catch((error) => {
                 console.log(error);
@@ -67,7 +71,8 @@ const Products = () => {
 
     return (
         <div className="dash_products">
-            <ReqLoading loading={loading}/>
+            <Loading loading={loading}/>
+            <ReqLoading loading={reqloading}/>
             <NotificationContainer />
             <Title title="products" />
             <div className="product_form_cont">
