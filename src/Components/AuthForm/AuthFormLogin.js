@@ -51,7 +51,7 @@ const AuthFormLogin = (props) => {
                     onChange = {e => setPassword(e.target.value)}
                 />
                 <button className='submit' onClick={(e) => submitHandler(e)}>Login</button>
-                <p className='redir'>have an account ? <Link to="/login">login</Link></p>
+                <p className='redir'>don't have an account? <Link to="/signup">signup</Link></p>
             </form>
             <FormValid />
         </div>

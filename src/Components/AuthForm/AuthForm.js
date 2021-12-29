@@ -4,28 +4,36 @@ import axios from 'axios'
 import './authform.scss'
 import OAuthButton from '../Helpers/OAuthButton'
 import FormValid from './FormValid'
+import ReqLoading from '../Loading/ReqLoading'
 const AuthForm = (props) => {
     const navigate = useNavigate();
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('');
+    const [reqloading, setReqLoading] = useState(false)
+    
     function submitHandler (e) {
         e.preventDefault();
+        setReqLoading(true)
         let data = {
             name,
             email,
             password
         }
-        axios.post(`${process.env.REACT_APP_API_LINK}/user/register`,data)
+        axios.post(`${process.env.REACT_APP_API_LINK_DEV}/user/register`,data)
         .then(response => {
+            setReqLoading(false)
             navigate('/login')
         })
         .catch(error => {
             console.log(error);
         })
     }
+    
+    
     return (
         <div className='form'>
+            <ReqLoading loading={reqloading}/>
             <form className='form_cont'>
                 <h2 className='form_title'>welcome to our app</h2>
                 <OAuthButton />
