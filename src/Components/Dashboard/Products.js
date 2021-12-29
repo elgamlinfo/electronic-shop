@@ -58,6 +58,7 @@ const Products = () => {
             })
             .then((res) => {
                 setData(res.data);
+                setCategory(res.data[0].name)
             })
             .catch((error) => {
                 console.log(error);
