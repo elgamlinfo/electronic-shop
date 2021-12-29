@@ -1,103 +1,178 @@
-import React, {useState} from 'react'
-import Title from './Title'
-import './admins.scss'
-import userImage from '../../images/person.webp'
-import {NotificationContainer, NotificationManager} from 'react-notifications';
-import 'react-notifications/lib/notifications.css';
+import React, { useEffect, useState } from "react";
+import Title from "./Title";
+import "./admins.scss";
+import {
+    NotificationContainer,
+    NotificationManager,
+} from "react-notifications";
+import ReqLoading from "../Loading/ReqLoading";
+import "react-notifications/lib/notifications.css";
+import axios from "axios";
 
 const Admins = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [address, setAddress] = useState('');
-    const [mobile, setMobile] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [data, setData] = useState([]);
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [address, setAddress] = useState("");
+    const [mobile, setMobile] = useState("");
     const [avatar, setAvatar] = useState();
 
     const submitHandler = (e) => {
         e.preventDefault();
-        let formData = new FormData()
+        setLoading(true);
+        let formData = new FormData();
         let data = {
             name,
             email,
             password,
             address,
             mobile,
-            avatar
-        }
-        for ( let key in data ) {
+            admin: true,
+            avatar,
+        };
+        for (let key in data) {
             formData.append(key, data[key]);
         }
-        console.log(formData);
-        NotificationManager.success('add successfully', 'success', 3000)
+
+        axios
+            .post(
+                `${process.env.REACT_APP_API_LINK_DEV}/admin/register`,
+                formData,
+                {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.token}`,
+                        "Content-Type": "multipart/form-data",
+                    },
+                }
+            )
+            .then((res) => {
+                setData(data => data.concat(res.data))
+                NotificationManager.success(
+                    `${res.data.name} added successfully`,
+                    "success",
+                    3000
+                );
+                setName('');
+                setEmail('');
+                setMobile('');
+                setPassword('');
+                setAddress('')
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+
+    function deleteAdmin (id) {
+        setLoading(true);
+        axios
+        .delete(`${process.env.REACT_APP_API_LINK_DEV}/user/delete/${id}`,{
+            headers: {
+                Authorization: `Bearer ${localStorage.token}`
+            },
+        })
+        .then(res => {
+            setData(data => data.filter(user => user._id !== res.data._id))
+            setLoading(false);
+            NotificationManager.success(
+                `${res.data.name} deleted successfully`,
+                "success",
+                3000
+            );
+        })
+        .catch(error => {
+            console.log(error);
+        })
     }
 
+    useEffect(_=> {
+        setLoading(true);
+        axios
+        .get(`${process.env.REACT_APP_API_LINK_DEV}/admins`,{
+            headers: {
+                Authorization: `Bearer ${localStorage.token}`
+            },
+        })
+        .then(res => {
+            setData(res.data);
+            setLoading(false);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }, [])
+
     return (
-        <div className='admins'>
+        <div className="admins">
+            <ReqLoading loading={loading} />
             <NotificationContainer />
-            <Title title="admins"/>
-            <div className='profile_form_cont'>
+            <Title title="admins" />
+            <div className="profile_form_cont">
                 <form>
-                    <div className='row'>
-                        <div className='input_group'>
-                            <label htmlFor='name'>name</label>
-                            <input 
-                                type='text' 
-                                name='name'
-                                id='name'
+                    <div className="row">
+                        <div className="input_group">
+                            <label htmlFor="name" >name</label>
+                            <input
+                                type="text"
+                                name="name"
+                                id="name"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                             />
                         </div>
-                        <div className='input_group'>
+                        <div className="input_group">
                             <label htmlFor="email">email</label>
-                            <input 
-                                type='email' 
-                                name='email'
-                                id='email'
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
                     </div>
-                    <div className='row'>
-                        <div className='input_group'>
-                            <label htmlFor='password'>password</label>
-                            <input 
-                                type='password' 
-                                name='password'
-                                id='password'
+                    <div className="row">
+                        <div className="input_group">
+                            <label htmlFor="password">password</label>
+                            <input
+                                type="password"
+                                name="password"
+                                id="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
-                        <div className='input_group'>
-                            <label htmlFor='address'>address</label>
-                            <input 
-                                type='text' 
-                                name='address' 
-                                id='address'
+                        <div className="input_group">
+                            <label htmlFor="address">address</label>
+                            <input
+                                type="text"
+                                name="address"
+                                id="address"
                                 value={address}
                                 onChange={(e) => setAddress(e.target.value)}
                             />
                         </div>
                     </div>
-                    <div className='row'>
-                        <div className='input_group'>
-                            <label htmlFor='mobile'>mobile</label>
-                            <input 
-                                type='text' 
-                                name='mobile'
-                                id='mobile'
+                    <div className="row">
+                        <div className="input_group">
+                            <label htmlFor="mobile">mobile</label>
+                            <input
+                                type="text"
+                                name="mobile"
+                                id="mobile"
                                 value={mobile}
                                 onChange={(e) => setMobile(e.target.value)}
                             />
                         </div>
-                        <div className='input_group'>
-                            <label htmlFor='image'>image</label>
+                        <div className="input_group">
+                            <label htmlFor="image">image</label>
                             <input
-                                type='file' 
-                                name='image' 
-                                id='image'  
+                                type="file"
+                                name="image"
+                                id="image"
                                 onChange={(e) => setAvatar(e.target.files[0])}
                             />
                         </div>
@@ -117,42 +192,26 @@ const Admins = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td  className='col-1'><img src={userImage} alt=""/></td>
-                        <td>mostafa elgaml</td>
-                        <td>elgaml.info@gmail.com</td>
-                        <td>01094977374</td>
-                        <td>cairo</td>
-                        <td><button variant="danger">delete</button></td>
-                    </tr>
-                    <tr>
-                        <td className='col-1'><img src={userImage} alt=""/></td>
-                        <td>mostafa elgaml</td>
-                        <td>elgaml.info@gmail.com</td>
-                        <td>01094977374</td>
-                        <td>cairo</td>
-                        <td><button variant="danger">delete</button></td>
-                    </tr>
-                    <tr>
-                        <td className='col-1'><img src={userImage} alt=""/></td>
-                        <td>mostafa elgaml</td>
-                        <td>elgaml.info@gmail.com</td>
-                        <td>01094977374</td>
-                        <td>cairo</td>
-                        <td><button variant="danger">delete</button></td>
-                    </tr>
-                    <tr>
-                        <td className='col-1'><img src={userImage} alt=""/></td>
-                        <td>mostafa elgaml</td>
-                        <td>elgaml.info@gmail.com</td>
-                        <td>01094977374</td>
-                        <td>cairo</td>
-                        <td><button variant="danger">delete</button></td>
-                    </tr>
+                    {data.map(user => {
+                        return(
+                            <tr key={user._id}> 
+                                <td className="col-1">
+                                    <img src={user.img} alt="" />
+                                </td>
+                                <td>{user.name}</td>
+                                <td>{user.email}</td>
+                                <td>{user.mobile}</td>
+                                <td>{user.address}</td>
+                                <td>
+                                    <button id={user._id} onClick={(e) => deleteAdmin(e.target.id)}>delete</button>
+                                </td>
+                            </tr>
+                        )
+                    })}
                 </tbody>
             </table>
         </div>
-    )
-}
+    );
+};
 
-export default Admins
+export default Admins;
