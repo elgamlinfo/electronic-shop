@@ -5,12 +5,14 @@ import {
     NotificationContainer,
     NotificationManager,
 } from "react-notifications";
+import Loading from "../Loading/Loading";
 import ReqLoading from "../Loading/ReqLoading";
 import "react-notifications/lib/notifications.css";
 import axios from "axios";
 
 const Admins = () => {
     const [loading, setLoading] = useState(false);
+    const [reqloading, setReqLoading] = useState(false);
     const [data, setData] = useState([]);
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -21,7 +23,7 @@ const Admins = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        setLoading(true);
+        setReqLoading(true);
         let formData = new FormData();
         let data = {
             name,
@@ -59,7 +61,7 @@ const Admins = () => {
                 setMobile('');
                 setPassword('');
                 setAddress('')
-                setLoading(false);
+                setReqLoading(false);
             })
             .catch((error) => {
                 console.log(error);
@@ -67,7 +69,7 @@ const Admins = () => {
     };
 
     function deleteAdmin (id) {
-        setLoading(true);
+        setReqLoading(true);
         axios
         .delete(`${process.env.REACT_APP_API_LINK_DEV}/user/delete/${id}`,{
             headers: {
@@ -76,7 +78,7 @@ const Admins = () => {
         })
         .then(res => {
             setData(data => data.filter(user => user._id !== res.data._id))
-            setLoading(false);
+            setReqLoading(false);
             NotificationManager.success(
                 `${res.data.name} deleted successfully`,
                 "success",
@@ -107,7 +109,8 @@ const Admins = () => {
 
     return (
         <div className="admins">
-            <ReqLoading loading={loading} />
+            <ReqLoading loading={reqloading} />
+            <Loading loading={loading} />
             <NotificationContainer />
             <Title title="admins" />
             <div className="profile_form_cont">

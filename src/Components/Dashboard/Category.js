@@ -4,14 +4,21 @@ import Title from './Title'
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 import axios from 'axios';
+import Loading from "../Loading/Loading";
+import ReqLoading from "../Loading/ReqLoading";
 
 
 const Category = () => {
     const [category, setCategory] = useState('');
     const [icon, setIcon] = useState('');
     const [data, setData] = useState([]);
+    const [reqloading, setReqLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
+    
+    
     const submitHandler = (e) => {
         e.preventDefault();
+        setReqLoading(true);
         let data = {
             name:category,
             icon
@@ -26,13 +33,35 @@ const Category = () => {
             NotificationManager.success('category add successfully', 'success', 3000)
             setCategory('')
             setIcon('')
+            setReqLoading(false);
         })
         .catch(error => {
             console.log(error);
         })
     }
-
+    function deleteCategory (id) {
+        setReqLoading(true);
+        axios
+        .delete(`${process.env.REACT_APP_API_LINK_DEV}/category/delete/${id}`,{
+            headers: {
+                Authorization: `Bearer ${localStorage.token}`
+            },
+        })
+        .then(res => {
+            setData(data => data.filter(category => category._id !== res.data._id))
+            setReqLoading(false);
+            NotificationManager.success(
+                `${res.data.name} deleted successfully`,
+                "success",
+                3000
+            );
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
     useEffect(_=> {
+        setLoading(true)
         axios.get(`${process.env.REACT_APP_API_LINK_DEV}/category`, {
             headers: {
                 Authorization:`Bearer ${localStorage.token}`
@@ -40,6 +69,7 @@ const Category = () => {
         })
         .then( res => {
             setData(res.data);
+            setLoading(false)
         })
         .catch(error => {
             console.log(error);
@@ -48,6 +78,8 @@ const Category = () => {
 
     return (
         <div className='dash_category'>
+            <ReqLoading loading={reqloading} />
+            <Loading loading={loading} />
             <NotificationContainer />
             <Title title="Categories"/>
             <div className='category_form_cont'>
@@ -93,7 +125,11 @@ const Category = () => {
                                 <td>{categ.icon}</td>
                                 <td>
                                     <button className='edit'>edit</button>
-                                    <button className='delete'>delete</button>
+                                    <button 
+                                        className='delete' 
+                                        id={categ._id} 
+                                        onClick={e => deleteCategory(e.target.id)}
+                                        >delete</button>
                                 </td>
                             </tr>
                         )
