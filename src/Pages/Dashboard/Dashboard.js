@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import DashAside from '../../Components/Dashboard/DashAside'
 import './dashboard.scss'
 import { Outlet, useNavigate } from 'react-router-dom'
-
+import Loading from '../../Components/Loading/Loading'
 const Dashboard = () => {
     //eslint-disable-next-line
     const navigate = useNavigate()
@@ -18,7 +18,7 @@ const Dashboard = () => {
     
     return (
         <>
-            {loading?<div>looooooooooooood</div>:
+            {loading?<Loading loading={loading}/>:
         <div className='dash_container'>
             <div className='dash_aside'>
                 <DashAside user={user}/>
