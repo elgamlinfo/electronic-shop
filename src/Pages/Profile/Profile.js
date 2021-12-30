@@ -16,18 +16,18 @@ const Profile = () => {
     
     useEffect(
         (_) => {
-            if (!isAuth&&loading) {
+            if (!user&&!loading) {
                 navigate("/login");
             }
             dispatch(footerActions.setFooterColor({ color: "#000000" }));
         },
-        [dispatch, navigate, isAuth, loading]
+        [dispatch, navigate,user,loading]
     );
 
 
     return (
         <>
-            {loading ? (
+            {!user? (
                 <Loading loading={loading} />
             ) : (
                 <div className="profile">

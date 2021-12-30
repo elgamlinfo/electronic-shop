@@ -4,11 +4,13 @@ import ProfileImg from '../../images/person.webp'
 import './profile-aside.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser,faShoppingBag,faHeart,faBars } from '@fortawesome/free-solid-svg-icons'
+import { useSelector } from 'react-redux'
 
 
 
 const ProfieAside = (props) => {
     const [active, setActive] = useState('');
+    const isAuth = useSelector((state) => state.user.isAuth);
 
     function toggleHandler() {
         active==="active"?
@@ -19,7 +21,7 @@ const ProfieAside = (props) => {
     return (
         <div className={`profil_aside ${active}`}>
             <div className='aside_head'>
-                <img src={props.user.img?props.user.img:ProfileImg} alt=''/>
+                <img src={isAuth&&props.user.img?props.user.img:ProfileImg} alt=''/>
                 <h1>{props.user.name}</h1>
             </div>
             <div className='aside_navs'>

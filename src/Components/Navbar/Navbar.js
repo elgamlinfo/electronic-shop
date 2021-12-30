@@ -33,9 +33,9 @@ const Navbar = (props) => {
         })
         .then(response => {
             localStorage.clear()
-            dispatch(userSliceActions.logout())
             setReqLoading(false)
             navigate('/')
+            dispatch(userSliceActions.logout())
         })
         .catch(error => {
             console.log(error);
@@ -63,7 +63,7 @@ const Navbar = (props) => {
                     <button className='shop-cart' aria-label='cart-btn' onClick={() => props.cartClickHunler()}><FontAwesomeIcon icon={faShoppingBag}/></button>
                     <Link to='/profile/favurite' className='shop-fav' aria-label='fav-btn' ><FontAwesomeIcon icon={faHeart}/></Link>
                     <div className='profile_menu'>
-                        <img src={isAuth?user.img:Image} alt=''/>
+                        <img src={isAuth&&user.img?user.img:Image} alt=''/>
                         <div className='dorp_down_menu'>
                             <ul>
                                 <li>

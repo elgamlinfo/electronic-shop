@@ -5,9 +5,9 @@ import axios from "axios";
 
 
 let initialState = {
-    user:undefined,
+    user:null,
     isAuth: false,
-    loading:true
+    loading:localStorage.token?true:false
 } 
 
 export const getUser = createAsyncThunk(
@@ -47,7 +47,8 @@ const userSlice = createSlice({
         },
         logout(state) {
             state.isAuth = false
-            state.loading = true
+            state.loading = null
+            state.user = null
         }
     }
 })
