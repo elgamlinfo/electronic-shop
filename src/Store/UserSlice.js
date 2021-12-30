@@ -3,6 +3,7 @@ import axios from "axios";
 
 
 
+
 let initialState = {
     user:undefined,
     isAuth: false,
@@ -11,8 +12,8 @@ let initialState = {
 
 export const getUser = createAsyncThunk(
     'user/getUser', 
-    async () => {
-        return  await axios.get(`${process.env.REACT_APP_API_LINK_DEV}/user`, {
+    () => {
+        return  axios.get(`${process.env.REACT_APP_API_LINK_DEV}/user`, {
             headers: {
                 Authorization:  `Bearer ${localStorage.token}`
             }
@@ -28,9 +29,9 @@ const userSlice = createSlice({
             state.loading = true
         },
         [getUser.fulfilled]: (state, {payload}) => {
-            state.user = payload
-            state.loading = false
             state.isAuth = true
+            state.loading = false
+            state.user = payload
         },
     }, 
     reducers: {
@@ -46,6 +47,7 @@ const userSlice = createSlice({
         },
         logout(state) {
             state.isAuth = false
+            state.loading = true
         }
     }
 })

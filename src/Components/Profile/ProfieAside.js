@@ -19,7 +19,7 @@ const ProfieAside = (props) => {
     return (
         <div className={`profil_aside ${active}`}>
             <div className='aside_head'>
-                <img src={props.user.img || ProfileImg} alt=''/>
+                <img src={props.user.img?props.user.img:ProfileImg} alt=''/>
                 <h1>{props.user.name}</h1>
             </div>
             <div className='aside_navs'>

@@ -7,9 +7,10 @@ import Loading from '../../Components/Loading/Loading'
 const Dashboard = () => {
     //eslint-disable-next-line
     const navigate = useNavigate()
-    const loading = useSelector(state => state.user.loading)
     const user = useSelector(state => state.user.user)
+    const loading = useSelector(state => state.user.loading)
     const isAuth = useSelector(state => state.user.isAuth)
+    
     useEffect(() => {
         if(!isAuth&&loading) {
             navigate('/login')

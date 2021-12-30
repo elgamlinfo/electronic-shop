@@ -9,20 +9,21 @@ import "./profile.scss";
 const Profile = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const loading = useSelector((state) => state.user.loading);
     const user = useSelector((state) => state.user.user);
+    const loading = useSelector((state) => state.user.loading);
     const isAuth = useSelector((state) => state.user.isAuth);
 
     
     useEffect(
         (_) => {
-            dispatch(footerActions.setFooterColor({ color: "#000000" }));
-            if (loading && isAuth) {
+            if (!isAuth&&loading) {
                 navigate("/login");
             }
+            dispatch(footerActions.setFooterColor({ color: "#000000" }));
         },
         [dispatch, navigate, isAuth, loading]
     );
+
 
     return (
         <>
