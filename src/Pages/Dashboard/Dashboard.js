@@ -9,7 +9,7 @@ const Dashboard = () => {
     const navigate = useNavigate()
     const user = useSelector(state => state.user.user)
     const loading = useSelector(state => state.user.loading)
-    const isAuth = useSelector(state => state.user.isAuth)
+    // const isAuth = useSelector(state => state.user.isAuth)
     
     useEffect(() => {
         if(!user && !loading) {
