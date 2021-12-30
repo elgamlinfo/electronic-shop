@@ -45,7 +45,6 @@ const userSlice = createSlice({
             state.loading = false
         },
         logout(state) {
-            // state.user = undefined
             state.isAuth = false
         }
     }

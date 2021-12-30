@@ -7,7 +7,7 @@ import { faUser,faShoppingBag,faHeart,faBars } from '@fortawesome/free-solid-svg
 
 
 
-const ProfieAside = () => {
+const ProfieAside = (props) => {
     const [active, setActive] = useState('');
 
     function toggleHandler() {
@@ -19,8 +19,8 @@ const ProfieAside = () => {
     return (
         <div className={`profil_aside ${active}`}>
             <div className='aside_head'>
-                <img src={ProfileImg} alt=''/>
-                <h1>John Doe</h1>
+                <img src={props.user.img || ProfileImg} alt=''/>
+                <h1>{props.user.name}</h1>
             </div>
             <div className='aside_navs'>
                 <div className='navs'>

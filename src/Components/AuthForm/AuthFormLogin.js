@@ -26,8 +26,8 @@ const AuthFormLogin = (props) => {
             navigate('/dashboard'):
             navigate('/')
         })
-        .catch(error => {
-            console.log(error);
+        .catch((res) => {
+            console.log('');
         })
     }
     return (
