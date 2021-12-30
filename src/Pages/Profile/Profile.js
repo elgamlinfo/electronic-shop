@@ -17,7 +17,7 @@ const Profile = () => {
     useEffect(
         (_) => {
             dispatch(footerActions.setFooterColor({ color: "#000000" }));
-            if (!isAuth && loading) {
+            if (!loading && !isAuth) {
                 navigate("/login");
             }
         },
