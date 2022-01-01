@@ -4,7 +4,6 @@ import "./admins.scss";
 import { ToastContainer, toast } from 'react-toastify';
 import Loading from "../Loading/Loading";
 import ReqLoading from "../Loading/ReqLoading";
-import "react-notifications/lib/notifications.css";
 import axios from "axios";
 
 const Admins = () => {
