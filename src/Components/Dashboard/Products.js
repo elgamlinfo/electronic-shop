@@ -3,7 +3,6 @@ import axios from "axios";
 import ReqLoading from "../Loading/ReqLoading"
 import Loading from "../Loading/Loading"
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-notifications/lib/notifications.css';
 import "./products.scss";
 import Title from "./Title";
 

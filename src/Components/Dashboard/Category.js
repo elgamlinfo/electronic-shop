@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react'
 import './category.scss'
 import Title from './Title'
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-notifications/lib/notifications.css';
 import axios from 'axios';
 import Loading from "../Loading/Loading";
 import ReqLoading from "../Loading/ReqLoading";
