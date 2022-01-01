@@ -265,9 +265,12 @@
     font-size: 24px;
     font-weight: 200;
     margin: 10px 0px;
+    &:last-of-type {
+        font-size: 16px;
+    }
     span {
-        color: $yel-color;
-        font-size: 18px;
+        color: $purp-color;
+        font-size: 12px;
         padding: 10px;
         i {
             padding-top: 8px;

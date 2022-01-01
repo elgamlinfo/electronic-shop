@@ -1,14 +1,17 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 import ValidationTxt from '../Helpers/ValidationTxt'
 import './formvalid.scss'
-const FormValid = () => {
+const FormValid = (props) => {
+    const location = useLocation();
     return (
         <div className='form-valid'>
             <div>
-                <ValidationTxt valid='true' text='validation role here!'/>
-                <ValidationTxt  text='validation role here!'/>
-                <ValidationTxt valid='true' text='validation role here!'/>
-                <ValidationTxt  text='validation role here!'/>
+                {location.pathname==='/login'?null:<ValidationTxt  text='name is not empty'/>}
+                <ValidationTxt  text='email is not empty'/>
+                <ValidationTxt  text='password is not empty'/>
+                <ValidationTxt  text='email formate ex@ex.ex'/>
+                <ValidationTxt  text='password contains numbers, lower and upper'/>
             </div>
         </div>
     )

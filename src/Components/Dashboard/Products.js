@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import ReqLoading from "../Loading/ReqLoading"
 import Loading from "../Loading/Loading"
@@ -8,6 +8,7 @@ import "./products.scss";
 import Title from "./Title";
 
 const Products = () => {
+    const formRef = useRef(null);
     const [data, setData] = useState([]);
     const [reqloading, setReqLoading] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -18,9 +19,26 @@ const Products = () => {
     const [specifications, setSpecifications] = useState('');
     const [photos, setPhotos] = useState();
     
+
+
+    let errors = []
+
+    function formValidation (data) {
+        errors = []
+        for(let key in data) {
+            if(data[key] === '') {
+                errors.push(`${key} is empty!`)
+            }
+        }
+        if(!photos) {
+            errors.push(`photos is empty!`)
+        }
+    }
+
+
+
     const addProductHandler = (e) => {
         e.preventDefault()
-        setReqLoading(true)
         let formData = new FormData()
         let productData = {
             title,
@@ -29,6 +47,19 @@ const Products = () => {
             category,
             specifications,
         }
+        formValidation(productData);
+        if(errors.length !== 0) {
+            errors.forEach((error, i) => {
+                NotificationManager.error(
+                    error,
+                    "Error",
+                    3000
+                );
+            })
+            return;
+        }
+        
+        setReqLoading(true)
         for ( let key in productData ) {
             formData.append(key, productData[key]);
         }
@@ -43,8 +74,14 @@ const Products = () => {
                 },
             })
             .then((res) => {
-                NotificationManager.success('product added successfully', 'success', 3000)
+                NotificationManager.success('product added successfully😁', 'success', 3000)
+                setCategory(data[0].name)
                 setReqLoading(false)
+                setTitle('')
+                setDescription('')
+                setCompany('')
+                setSpecifications('')
+                formRef.current.reset();
             })
             .catch((error) => {
                 console.log(error);
@@ -76,7 +113,7 @@ const Products = () => {
             <NotificationContainer />
             <Title title="products" />
             <div className="product_form_cont">
-                <form>
+                <form ref={formRef}>
                     <div className="row">
                         <div className="input_group">
                             <label htmlFor="title">title</label>

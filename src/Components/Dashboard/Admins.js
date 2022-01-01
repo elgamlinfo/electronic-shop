@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Title from "./Title";
 import "./admins.scss";
 import {
@@ -11,6 +11,7 @@ import "react-notifications/lib/notifications.css";
 import axios from "axios";
 
 const Admins = () => {
+    const formRef = useRef(null);
     const [loading, setLoading] = useState(false);
     const [reqloading, setReqLoading] = useState(false);
     const [data, setData] = useState([]);
@@ -20,10 +21,32 @@ const Admins = () => {
     const [address, setAddress] = useState("");
     const [mobile, setMobile] = useState("");
     const [avatar, setAvatar] = useState();
+    let errors = []
+
+    function formValidation (data) {
+        let reg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        let passReg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm
+        errors = []
+        for(let key in data) {
+            if(data[key] === '' && key !== "admin" && key !== "avatar") {
+                errors.push(`${key} is empty!😊`)
+            }
+            if(!data["avatar"] &&  key === "avatar") {
+                errors.push(`avatar is empty!😊`)
+            }
+            if(key === "email" && data[key] !== '' && !reg.test(data[key])){
+                errors.push(`${key} is not valid!😊`)
+            }
+            if(key === "password" && data[key] !== '' && !passReg.test(data[key])){
+                errors.push(`${key} must contains numbers, lowercase and uppercase letters😊`)
+            }
+        }
+    }
+
+
 
     const submitHandler = (e) => {
         e.preventDefault();
-        setReqLoading(true);
         let formData = new FormData();
         let data = {
             name,
@@ -34,6 +57,20 @@ const Admins = () => {
             admin: true,
             avatar,
         };
+        
+        formValidation(data);
+        if(errors.length !== 0) {
+            errors.forEach((error, i) => {
+                NotificationManager.error(
+                    error,
+                    "Error",
+                    3000
+                );
+            })
+            return;
+        }
+
+        setReqLoading(true);
         for (let key in data) {
             formData.append(key, data[key]);
         }
@@ -52,7 +89,7 @@ const Admins = () => {
             .then((res) => {
                 setData(data => data.concat(res.data))
                 NotificationManager.success(
-                    `${res.data.name} added successfully`,
+                    `${res.data.name} added successfully😁`,
                     "success",
                     3000
                 );
@@ -61,6 +98,7 @@ const Admins = () => {
                 setMobile('');
                 setPassword('');
                 setAddress('')
+                formRef.current.reset();
                 setReqLoading(false);
             })
             .catch((error) => {
@@ -114,7 +152,7 @@ const Admins = () => {
             <NotificationContainer />
             <Title title="admins" />
             <div className="profile_form_cont">
-                <form>
+                <form ref={formRef}>
                     <div className="row">
                         <div className="input_group">
                             <label htmlFor="name" >name</label>

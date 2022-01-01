@@ -14,15 +14,37 @@ const Category = () => {
     const [data, setData] = useState([]);
     const [reqloading, setReqLoading] = useState(false);
     const [loading, setLoading] = useState(false);
-    
+    let errors = []
+
+    function formValidation (data) {
+        errors = []
+        for(let key in data) {
+            if(data[key] === '') {
+                errors.push(`${key} is empty!😊`)
+            }
+        }
+    }
+
     
     const submitHandler = (e) => {
         e.preventDefault();
-        setReqLoading(true);
         let data = {
             name:category,
             icon
         }
+        formValidation(data);
+        if(errors.length !== 0) {
+            errors.forEach((error, i) => {
+                NotificationManager.error(
+                    error,
+                    "Error",
+                    3000
+                );
+            })
+            return;
+        }
+            
+        setReqLoading(true);
         axios.post(`${process.env.REACT_APP_API_LINK_DEV}/category/add`, data, {
             headers: {
                 Authorization:`Bearer ${localStorage.token}`
@@ -30,7 +52,7 @@ const Category = () => {
         })
         .then(res => {
             setData(data => data.concat(res.data))
-            NotificationManager.success('category add successfully', 'success', 3000)
+            NotificationManager.success('category add successfully😁', 'success', 3000)
             setCategory('')
             setIcon('')
             setReqLoading(false);

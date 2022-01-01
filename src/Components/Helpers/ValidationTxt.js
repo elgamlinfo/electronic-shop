@@ -1,12 +1,12 @@
 import React from 'react'
 import './helpers.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
+import {faCircle} from '@fortawesome/free-solid-svg-icons'
 const ValidationTxt = (props) => {
     return (
         <div className='valid-txt'>
-            <span className={props.valid?'':'invalid'}>
-                <FontAwesomeIcon icon={props.valid?faCheck:faTimes}/>
+            <span>
+                <FontAwesomeIcon icon={faCircle}/>
             </span>
             {props.text}
         </div>

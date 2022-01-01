@@ -47,7 +47,7 @@ const Profile = () => {
             )
             .then((res) => {
                 NotificationManager.success(
-                    `your information updated successfully`,
+                    `your information updated successfully😁`,
                     "success",
                     3000
                 );
