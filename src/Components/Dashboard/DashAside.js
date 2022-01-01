@@ -6,15 +6,17 @@ import './dash-aside.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingBag,faBars, faTachometerAlt, faUsers, faUsersCog, faShippingFast, faList ,faSignOutAlt} from '@fortawesome/free-solid-svg-icons'
 import { useDispatch } from 'react-redux'
-
+import ReqLoading from '../Loading/ReqLoading'
+import { useState } from 'react'
 
 
 const ProfieAside = (props) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    
+    const [reqLoading, setReqLoading] = useState(false);
     const logoutHandler = e => {
         e.preventDefault();
+        setReqLoading(true)
         axios.post(`${process.env.REACT_APP_API_LINK_DEV}/user/logout`, {},{
             headers: {
                 Authorization:  `Bearer ${localStorage.token}`
@@ -23,6 +25,7 @@ const ProfieAside = (props) => {
         .then(response => {
             localStorage.clear()
             dispatch(userSliceActions.logout())
+            setReqLoading(false)
             navigate('/login')
         })
         .catch(error => {
@@ -32,6 +35,7 @@ const ProfieAside = (props) => {
 
     return (
         <div className={`profile_aside`}>
+            <ReqLoading loading={reqLoading}/>
             <div className='aside_head'>
                 <img src={props.user.img?props.user.img:ProfileImg} alt=''/>
                 <div className='head_info'>
