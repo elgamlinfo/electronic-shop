@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import './category.scss'
 import Title from './Title'
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-notifications/lib/notifications.css';
 import axios from 'axios';
 import Loading from "../Loading/Loading";
@@ -35,11 +35,15 @@ const Category = () => {
         formValidation(data);
         if(errors.length !== 0) {
             errors.forEach((error, i) => {
-                NotificationManager.error(
-                    error,
-                    "Error",
-                    3000
-                );
+                toast.error(error, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             })
             return;
         }
@@ -52,7 +56,15 @@ const Category = () => {
         })
         .then(res => {
             setData(data => data.concat(res.data))
-            NotificationManager.success('category add successfully😁', 'success', 3000)
+            toast.success('category add successfully😁', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
             setCategory('')
             setIcon('')
             setReqLoading(false);
@@ -72,11 +84,15 @@ const Category = () => {
         .then(res => {
             setData(data => data.filter(category => category._id !== res.data._id))
             setReqLoading(false);
-            NotificationManager.success(
-                `${res.data.name} deleted successfully`,
-                "success",
-                3000
-            );
+            toast.success(`${res.data.name} deleted successfully`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         })
         .catch(error => {
             console.log(error);
@@ -102,7 +118,9 @@ const Category = () => {
         <div className='dash_category'>
             <ReqLoading loading={reqloading} />
             <Loading loading={loading} />
-            <NotificationContainer />
+            <ToastContainer 
+                theme="colored"
+            />
             <Title title="Categories"/>
             <div className='category_form_cont'>
                 <form>

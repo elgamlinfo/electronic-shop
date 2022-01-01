@@ -1,10 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Title from "./Title";
 import "./admins.scss";
-import {
-    NotificationContainer,
-    NotificationManager,
-} from "react-notifications";
+import { ToastContainer, toast } from 'react-toastify';
 import Loading from "../Loading/Loading";
 import ReqLoading from "../Loading/ReqLoading";
 import "react-notifications/lib/notifications.css";
@@ -61,11 +58,7 @@ const Admins = () => {
         formValidation(data);
         if(errors.length !== 0) {
             errors.forEach((error, i) => {
-                NotificationManager.error(
-                    error,
-                    "Error",
-                    3000
-                );
+                toast.error(error);
             })
             return;
         }
@@ -88,11 +81,7 @@ const Admins = () => {
             )
             .then((res) => {
                 setData(data => data.concat(res.data))
-                NotificationManager.success(
-                    `${res.data.name} added successfully😁`,
-                    "success",
-                    3000
-                );
+                toast.success(`${res.data.name} added successfully😁`);
                 setName('');
                 setEmail('');
                 setMobile('');
@@ -117,11 +106,7 @@ const Admins = () => {
         .then(res => {
             setData(data => data.filter(user => user._id !== res.data._id))
             setReqLoading(false);
-            NotificationManager.success(
-                `${res.data.name} deleted successfully`,
-                "success",
-                3000
-            );
+            toast.success(`${res.data.name} deleted successfully😁`);
         })
         .catch(error => {
             console.log(error);
@@ -149,7 +134,18 @@ const Admins = () => {
         <div className="admins">
             <ReqLoading loading={reqloading} />
             <Loading loading={loading} />
-            <NotificationContainer />
+            <ToastContainer 
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
             <Title title="admins" />
             <div className="profile_form_cont">
                 <form ref={formRef}>

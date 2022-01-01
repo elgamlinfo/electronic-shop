@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {useDispatch, useSelector} from "react-redux"
 import './profile-content.scss'
-import {NotificationContainer,NotificationManager,} from "react-notifications";
+import { ToastContainer, toast } from 'react-toastify';
 import Loading from "../Loading/Loading";
 import ReqLoading from "../Loading/ReqLoading";
 import axios  from "axios" 
@@ -46,11 +46,7 @@ const Profile = () => {
                 }
             )
             .then((res) => {
-                NotificationManager.success(
-                    `your information updated successfully😁`,
-                    "success",
-                    3000
-                );
+                toast.success(`your information updated successfully😁`);
                 dispatch(userSliceActions.setUserData(res.data))
                 setReqLoading(false);
             })
@@ -72,7 +68,18 @@ const Profile = () => {
         <div className='profile_content'>
             <ReqLoading loading={reqloading} />
             <Loading loading={loading} />
-            <NotificationContainer />
+            <ToastContainer 
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
             <h2 className='titl'>Profile</h2>
             <div className="profile_form_cont">
                 <form>

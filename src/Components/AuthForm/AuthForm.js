@@ -5,8 +5,7 @@ import './authform.scss'
 import OAuthButton from '../Helpers/OAuthButton'
 import FormValid from './FormValid'
 import ReqLoading from '../Loading/ReqLoading'
-import {NotificationContainer, NotificationManager} from "react-notifications";
-
+import { ToastContainer, toast } from 'react-toastify';
 
 
 
@@ -49,11 +48,15 @@ const AuthForm = (props) => {
         formValidation(data);
         if(errors.length !== 0) {
             errors.forEach((error, i) => {
-                NotificationManager.error(
-                    error,
-                    "Error",
-                    3000
-                );
+                toast.error(error, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             })
             return;
         }
@@ -66,11 +69,15 @@ const AuthForm = (props) => {
         .catch(error => {
             setReqLoading(false)
             console.clear();
-            NotificationManager.error(
-                'email is used, please try another one😊',
-                "Error",
-                3000
-            );
+            toast.error('email is used, please try another one😊', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         })
     }
     
@@ -78,7 +85,6 @@ const AuthForm = (props) => {
     return (
         <div className='form'>
             <ReqLoading loading={reqloading}/>
-            <NotificationContainer/>
             <form className='form_cont'>
                 <h2 className='form_title'>welcome to our app</h2>
                 <OAuthButton />
@@ -108,6 +114,18 @@ const AuthForm = (props) => {
                 <p className='redir'>have an account ? <Link to="/login">login</Link></p>
             </form>
             <FormValid/>
+            <ToastContainer 
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
         </div>
     )
 }

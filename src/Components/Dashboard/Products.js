@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import ReqLoading from "../Loading/ReqLoading"
 import Loading from "../Loading/Loading"
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-notifications/lib/notifications.css';
 import "./products.scss";
 import Title from "./Title";
@@ -50,11 +50,7 @@ const Products = () => {
         formValidation(productData);
         if(errors.length !== 0) {
             errors.forEach((error, i) => {
-                NotificationManager.error(
-                    error,
-                    "Error",
-                    3000
-                );
+                toast.error(error);
             })
             return;
         }
@@ -74,7 +70,7 @@ const Products = () => {
                 },
             })
             .then((res) => {
-                NotificationManager.success('product added successfully😁', 'success', 3000)
+                toast.success('product added successfully😁');
                 setCategory(data[0].name)
                 setReqLoading(false)
                 setTitle('')
@@ -110,7 +106,18 @@ const Products = () => {
         <div className="dash_products">
             <Loading loading={loading}/>
             <ReqLoading loading={reqloading}/>
-            <NotificationContainer />
+            <ToastContainer 
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
             <Title title="products" />
             <div className="product_form_cont">
                 <form ref={formRef}>

@@ -7,7 +7,7 @@ import ReqLoading from '../Loading/ReqLoading'
 import {userSliceActions} from '../../Store/UserSlice'
 import OAuthButton from '../Helpers/OAuthButton'
 import FormValid from './FormValid'
-import {NotificationContainer, NotificationManager} from "react-notifications";
+import { ToastContainer, toast } from 'react-toastify';
 
 
 
@@ -45,11 +45,7 @@ const AuthFormLogin = (props) => {
         formValidation(data);
         if(errors.length !== 0) {
             errors.forEach((error, i) => {
-                NotificationManager.error(
-                    error,
-                    "Error",
-                    3000
-                );
+                toast.error(error);
             })
             return;
         }
@@ -67,17 +63,24 @@ const AuthFormLogin = (props) => {
         .catch((res) => {
             setReqLoading(false)
             console.clear();
-            NotificationManager.error(
-                'email or password not valid check it and try again😊',
-                "Error",
-                3000
-            );
+            toast.error('email or password not valid check it and try again😊');
         })
     }
     return (
         <div className='form'>
             <ReqLoading loading={reqloading} />
-            <NotificationContainer />
+            <ToastContainer 
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
             <form className='form_cont'>
                 <h2 className='form_title'>welcome to our app</h2>
                 <OAuthButton />
