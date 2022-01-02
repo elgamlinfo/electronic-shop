@@ -1,6 +1,7 @@
 @import '../sass/variables';
 .users {
     background-color: #f9f9f9;
+    min-height: 100vh;
     .users_table {
         border-spacing: 0 15px;
     	border-collapse: separate;
