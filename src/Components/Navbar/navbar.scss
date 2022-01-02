@@ -75,6 +75,24 @@
                         border: 3px solid $base-color;
                     }
                 }
+                .search_key_cont {
+                    position: absolute;
+                    top: 102%;
+                    left: 0;
+                    width: 100%;
+                    z-index: 9999;
+                    background-color: $gray-color;
+                    border-radius: 5px;
+                    padding: 5px;
+                    a{
+                        display: block;
+                        color: $base-color;
+                        text-decoration: none;
+                        padding: 3px 5px;
+                        font-size: 18px;
+                        font-weight: 400;
+                    }
+                }
                 .search-btn {
                     position: absolute;
                     right: -9px;

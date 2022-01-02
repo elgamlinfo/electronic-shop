@@ -21,6 +21,7 @@ const Navbar = (props) => {
     const navigate = useNavigate();
     const [active, setActive] = useState("");
     const [search, setSearch] = useState("");
+    const [realSearch, setRealSearch] = useState(null);
     const [reqLoading, setReqLoading] = useState(false);
     const user = useSelector((state) => state.user.user);
     const isAuth = useSelector((state) => state.user.isAuth);
@@ -54,13 +55,15 @@ const Navbar = (props) => {
 
     function realTimeSearchHandler(val) {
         setSearch(val);
+        setRealSearch(null)
+        if(val === '') return;
         axios
             .get(
                 `${process.env.REACT_APP_API_LINK_DEV}/product/all?search=${val}`
             )
             .then((res) => {
-                console.log(res.data);
-            });
+                setRealSearch(res.data.map(d => ({title: d.title,id:d._id})))
+        });
     }
 
     function searchBtnHandler() {
@@ -68,6 +71,7 @@ const Navbar = (props) => {
         ? navigate(`/products?search=${search}`)
         : toast.warning("Enter anything to search😊");
         setSearch('');
+        setRealSearch(null)
     }
 
     return (
@@ -117,6 +121,14 @@ const Navbar = (props) => {
                                 realTimeSearchHandler(e.target.value)
                             }
                         />
+                        
+                        {
+                            realSearch?
+                            <div className="search_key_cont">
+                                    {realSearch.map((data,i) => <Link key={i} to={`/product?id=${data.id}`}>{data.title}</Link>)}
+                            </div>:null
+                        }
+                        
                         <button
                             className="search-btn"
                             aria-label="search-btn"
