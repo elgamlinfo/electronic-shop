@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./navbar.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ToastContainer, toast } from "react-toastify";
+
 import {
     faHeart,
     faSearch,
@@ -18,6 +20,7 @@ const Navbar = (props) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [active, setActive] = useState("");
+    const [search, setSearch] = useState("");
     const [reqLoading, setReqLoading] = useState(false);
     const user = useSelector((state) => state.user.user);
     const isAuth = useSelector((state) => state.user.isAuth);
@@ -49,14 +52,23 @@ const Navbar = (props) => {
             });
     };
 
-
-    function realTimeSearchHandler (val) {
-        axios.get(`${process.env.REACT_APP_API_LINK_DEV}/product/all?search=${val}`)
-        .then(res => {
-            console.log(res.data);
-        })
+    function realTimeSearchHandler(val) {
+        setSearch(val);
+        axios
+            .get(
+                `${process.env.REACT_APP_API_LINK_DEV}/product/all?search=${val}`
+            )
+            .then((res) => {
+                console.log(res.data);
+            });
     }
 
+    function searchBtnHandler() {
+        search !== ""
+        ? navigate(`/products?search=${search}`)
+        : toast.warning("Enter anything to search😊");
+        setSearch('');
+    }
 
     return (
         <div
@@ -69,6 +81,18 @@ const Navbar = (props) => {
                     : { background: "#fff" }
             }
         >
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
             <ReqLoading loading={reqLoading} />
             <div className="container">
                 <h1 className="logo">
@@ -88,13 +112,19 @@ const Navbar = (props) => {
                             name="search"
                             className="search"
                             placeholder="Laptops, cameras, phones....."
-                            onChange={e => realTimeSearchHandler(e.target.value)}
+                            value={search}
+                            onChange={(e) =>
+                                realTimeSearchHandler(e.target.value)
+                            }
                         />
-                        <button className="search-btn" aria-label="search-btn">
+                        <button
+                            className="search-btn"
+                            aria-label="search-btn"
+                            onClick={searchBtnHandler}
+                        >
                             <FontAwesomeIcon icon={faSearch} />
                         </button>
                     </div>
-
                 </div>
                 <div className="options">
                     <button

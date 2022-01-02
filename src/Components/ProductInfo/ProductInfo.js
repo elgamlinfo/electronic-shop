@@ -1,21 +1,16 @@
 import React from 'react'
 import './productinfo.scss'
-const ProductInfo = () => {
+const ProductInfo = (props) => {
     return (
         <div className='product_info'>
             {/* product title */}
             <div className='product_title'>
-                <h2>MacBook Pro 16 Inch</h2>
-                <p className='company_name'>by <span>pc company</span></p>
+                <h2>{props.data.title}</h2>
+                <p className='company_name'>by <span>{props.data.company}</span></p>
             </div>
             <div className="description">
                 <h3>Description</h3>
-                <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting 
-                industry. Lorem Ipsum has been the industry's standard dummy 
-                text ever since the 1500s, when an unknown printer took a galley 
-                of type and scrambled it to make a type specimen book.
-                </p>
+                <p>{props.data.description}</p>
             </div>
             <div className='color'>
                 <h3>color: <span>Black</span></h3>
@@ -29,13 +24,14 @@ const ProductInfo = () => {
             <div className='about_item'>
                 <h3>about this item</h3>
                 <div className='prod_about'>
-                    <p>Apple-designed M1 chip for a giant leap in CPU, GPU, and machine learning performance</p>
+                    {props.data.specifications.map((s,i)=> <p key={i}>{s}</p>)}
+                    {/* <p>Apple-designed M1 chip for a giant leap in CPU, GPU, and machine learning performance</p>
                     <p>Get more done with up to 20 hours of battery life, the longest ever in a Mac</p>
                     <p>8-core CPU delivers up to 2.8x faster performance to fly through workflows quicker than ever</p>
                     <p>8-core GPU with up to 5x faster graphics for graphics-intensive apps and games</p>
                     <p>16-core Neural Engine for advanced machine learning</p>
                     <p>8GB of unified memory so everything you do is fast and fluid</p>
-                    <p>Superfast SSD storage launches apps and opens files in an instant</p>
+                    <p>Superfast SSD storage launches apps and opens files in an instant</p> */}
                 </div>
             </div>
             <div className='ctrl_btns'>
