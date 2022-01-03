@@ -12,7 +12,7 @@ const ProductThumb = (props) => {
     return (
         <div className='product_thumb'>
             <div className='thumb_1'>
-                {props.images.map(img => <ThumbImg1 key={img} clickHundler={clickHundler} PorductImg={img}/>)}
+                {props.images.map(img => <ThumbImg1 key={img} height='70px' clickHundler={clickHundler} PorductImg={img}/>)}
             </div>
             <div className='thumb_2'>
                 <ThumbImg1 width='90%' height='90%' PorductImg={imgSrc}/>

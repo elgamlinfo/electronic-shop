@@ -6,7 +6,7 @@ const ThumbImg1 = (props) => {
         <div 
         className='thumb_img' 
         style={{
-            width: props.width? props.width:'70%',
+            width: props.width? props.width:'80%',
             height: props.height? props.height:'auto',
         }} 
         >
