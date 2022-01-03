@@ -37,8 +37,8 @@ const Home = () => {
                     <ShowProducts title='Offers & Top Selling' data={data}/>
                     <Ads />
                     <ShowProducts title='Mobiles' data={data.filter(prod => prod.category === "mobile")}/>
-                    <ShowProducts title='Cameras'data={data.filter(prod => prod.category === "camera")}/>
-                    <ShowProducts title='Keyboard & Mouse'data={data.filter(prod => prod.category === "keyboard")}/>
+                    <ShowProducts title='Mouses'data={data.filter(prod => prod.category === "mouses")}/>
+                    <ShowProducts title='Keyboards'data={data.filter(prod => prod.category === "keyboard")}/>
                     <Ads />
                 </div>
             }
