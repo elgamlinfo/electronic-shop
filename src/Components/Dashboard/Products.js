@@ -16,6 +16,7 @@ const Products = () => {
     const [company, setCompany] = useState('');
     const [category, setCategory] = useState('');
     const [specifications, setSpecifications] = useState('');
+    const [price, setPrice] = useState('');
     const [photos, setPhotos] = useState();
     
 
@@ -45,6 +46,7 @@ const Products = () => {
             company,
             category,
             specifications,
+            price
         }
         formValidation(productData);
         if(errors.length !== 0) {
@@ -175,15 +177,14 @@ const Products = () => {
                     </div>
                     <div className="row">
                         <div className="input_group">
-                            <label htmlFor="specifications">
-                                specifications
-                            </label>
-                            <textarea
-                                name="specifications"
-                                id="specifications"
-                                value={specifications} 
-                                onChange={e => setSpecifications(e.target.value)}
-                            ></textarea>
+                            <label htmlFor="price">price</label>
+                            <input 
+                                type="number" 
+                                name="price" 
+                                id="price" 
+                                value={price} 
+                                onChange={e => setPrice(e.target.value)}
+                            />
                         </div>
                         <div className="input_group">
                             <label htmlFor="images">image</label>
@@ -194,6 +195,19 @@ const Products = () => {
                                 onChange={e => setPhotos(e.target.files)}
                                 multiple
                             />
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="input_group">
+                            <label htmlFor="specifications">
+                                specifications
+                            </label>
+                            <textarea
+                                name="specifications"
+                                id="specifications"
+                                value={specifications} 
+                                onChange={e => setSpecifications(e.target.value)}
+                            ></textarea>
                         </div>
                     </div>
                     <button onClick={e => addProductHandler(e)}>save</button>

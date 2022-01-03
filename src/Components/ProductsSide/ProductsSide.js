@@ -13,6 +13,7 @@ const ProductsSide = (props) => {
                             key={prod._id}
                             title={prod.title}
                             img={prod.images[0]}
+                            price={prod.price}
                             id={prod._id}
                         />
                     )

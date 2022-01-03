@@ -124,7 +124,7 @@
             margin: 40px auto;
         }
         button {
-            width: 100px;
+            min-width: 100px;
             margin-right: 10px;
             color: #fff;
             border:none;
@@ -134,6 +134,7 @@
             cursor: pointer;
             &.add_cart {
                 background-color: $base-color;
+                padding: 7px 6px;
             }
             &.add_fav {
                 background-color: #E74C3C;

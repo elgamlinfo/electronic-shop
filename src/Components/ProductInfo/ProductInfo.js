@@ -1,6 +1,10 @@
 import React from 'react'
 import './productinfo.scss'
 const ProductInfo = (props) => {
+    let formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    });
     return (
         <div className='product_info'>
             {/* product title */}
@@ -35,7 +39,7 @@ const ProductInfo = (props) => {
                 </div>
             </div>
             <div className='ctrl_btns'>
-                <button className='add_cart'><i className='fas fa-cart-plus'></i></button>
+                <button className='add_cart'><i className='fas fa-cart-plus'></i> {formatter.format(props.data.price)}</button>
                 <button className='add_fav'><span><i className='fas fa-heart'></i></span></button>
             </div>
         </div>

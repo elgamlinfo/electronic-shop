@@ -4,6 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartPlus, faEye, faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 const Product = (props) => {
+    let formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    });
 
     return (
         <div className='product'>
@@ -19,7 +23,7 @@ const Product = (props) => {
                 </div>
             </div>
             <div className='product-info'>
-                <p className='product-price'>2,000,000$</p>
+                <p className='product-price'>{formatter.format(props.price)}</p>
                 <p className='product-name'>{props.title}</p>
             </div>
         </div>
