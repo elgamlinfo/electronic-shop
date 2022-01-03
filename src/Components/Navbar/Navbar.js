@@ -56,13 +56,16 @@ const Navbar = (props) => {
     function realTimeSearchHandler(val) {
         setSearch(val);
         setRealSearch(null)
-        if(val === '') return;
         axios
-            .get(
-                `${process.env.REACT_APP_API_LINK_DEV}/product/all?search=${val}`
+        .get(
+            `${process.env.REACT_APP_API_LINK_DEV}/product/all?search=${val}`
             )
-            .then((res) => {
-                setRealSearch(res.data.map(d => ({title: d.title,id:d._id})))
+        .then((res) => {
+            if(val === '') {
+                return setRealSearch(null);
+                
+            };
+            setRealSearch(res.data.map(d => ({title: d.title,id:d._id})))
         });
     }
 
@@ -72,6 +75,11 @@ const Navbar = (props) => {
         : toast.warning("Enter anything to search😊");
         setSearch('');
         setRealSearch(null)
+    }
+
+    function resetSearch() {
+        setRealSearch(null) 
+        setSearch("")
     }
 
     return (
@@ -125,7 +133,7 @@ const Navbar = (props) => {
                         {
                             realSearch?
                             <div className="search_key_cont">
-                                    {realSearch.map((data,i) => <Link key={i} to={`/product?id=${data.id}`}>{data.title}</Link>)}
+                                    {realSearch.map((data,i) => <Link onClick={resetSearch} key={i} to={`/product?id=${data.id}`}>{data.title}</Link>)}
                             </div>:null
                         }
                         
