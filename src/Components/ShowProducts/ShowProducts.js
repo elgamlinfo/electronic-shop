@@ -33,6 +33,8 @@ const ShowProducts = (props) => {
                     slidesPerView={4}
                     spaceBetween={40}
                     freeMode={true} 
+                    loop={true} 
+                    loopFillGroupWithBlank={true}
                     autoplay={{"delay": 1500, "disableOnInteraction": false }}
                     breakpoints={{
                         "200": {
@@ -53,33 +55,18 @@ const ShowProducts = (props) => {
                         }
                     }}
                 >
-                    <SwiperSlide>
-                        <Product />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Product />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Product />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Product />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Product />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Product />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Product />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Product />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Product />
-                    </SwiperSlide>
+                    {props.data.map(prod => {
+                        return(
+                            <SwiperSlide key={prod._id}>
+                                <Product 
+                                    title={prod.title}
+                                    img={prod.images[0]}
+                                    price={prod.price}
+                                    id={prod._id}
+                                />
+                            </SwiperSlide>
+                        )
+                    })}
                 </Swiper>
             </div>
         </div>

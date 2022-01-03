@@ -78,6 +78,7 @@ const Products = () => {
                 setDescription('')
                 setCompany('')
                 setSpecifications('')
+                setPrice('')
                 formRef.current.reset();
             })
             .catch((error) => {
