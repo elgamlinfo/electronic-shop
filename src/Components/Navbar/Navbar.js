@@ -58,7 +58,7 @@ const Navbar = (props) => {
         setRealSearch(null)
         axios
         .get(
-            `${process.env.REACT_APP_API_LINK_DEV}/product/all?search=${val}`
+            `${process.env.REACT_APP_API_LINK_DEV}/product/search?search=${val}`
             )
         .then((res) => {
             if(val === '') {
