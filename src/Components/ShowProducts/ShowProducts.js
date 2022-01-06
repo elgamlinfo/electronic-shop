@@ -63,6 +63,7 @@ const ShowProducts = (props) => {
                                     img={prod.images[0]}
                                     price={prod.price}
                                     id={prod._id}
+                                    company={prod.company}
                                 />
                             </SwiperSlide>
                         )

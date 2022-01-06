@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {getUser} from './Store/UserSlice'
+import { getCart } from './Store/cartSlice';
 import AllProducts from './Pages/AllProdusts/AllProducts';
 import CheckOut from './Pages/CheckOut/CheckOut';
 import Home from './Pages/Home/Home'
@@ -27,8 +28,12 @@ const App = () => {
     // eslint-disable-next-line
     function setUserStore() {
         let token = localStorage.token;
+        let cart = localStorage.cart;
         if(token){
             dispatch(getUser())
+        }
+        if(cart) {
+            dispatch(getCart())
         }
     }
 

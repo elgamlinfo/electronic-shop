@@ -8,7 +8,7 @@ import {userSliceActions} from '../../Store/UserSlice'
 import OAuthButton from '../Helpers/OAuthButton'
 import FormValid from './FormValid'
 import { ToastContainer, toast } from 'react-toastify';
-
+import {getCart} from '../../Store/cartSlice'
 
 
 const AuthFormLogin = (props) => {
@@ -54,6 +54,9 @@ const AuthFormLogin = (props) => {
         .then(response => {
             dispatch(userSliceActions.setUserData(response.data.user))
             localStorage.setItem("token", response.data.token)
+            dispatch(getCart())
+            localStorage.setItem("cart", response.data.user.cartId)
+            
             dispatch(userSliceActions.setIsAuth())
             setReqLoading(false)
             response.data.user.admin?

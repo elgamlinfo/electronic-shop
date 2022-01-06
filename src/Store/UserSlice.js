@@ -3,7 +3,6 @@ import axios from "axios";
 
 
 
-
 let initialState = {
     user:null,
     isAuth: false,
@@ -17,7 +16,9 @@ export const getUser = createAsyncThunk(
             headers: {
                 Authorization:  `Bearer ${localStorage.token}`
             }
-        }).then(response => response.data)
+        }).then(response => {
+            return response.data
+        })
     }   
 )
 
