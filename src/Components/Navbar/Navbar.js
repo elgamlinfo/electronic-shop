@@ -14,6 +14,7 @@ import Image from "../../images/person.webp";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { userSliceActions } from "../../Store/UserSlice";
+import { cartActions } from "../../Store/cartSlice";
 import ReqLoading from "../Loading/ReqLoading";
 
 const Navbar = (props) => {
@@ -47,6 +48,7 @@ const Navbar = (props) => {
                 setReqLoading(false);
                 navigate("/");
                 dispatch(userSliceActions.logout());
+                dispatch(cartActions.logout())
             })
             .catch((error) => {
                 console.log(error);

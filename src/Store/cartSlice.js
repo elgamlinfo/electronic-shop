@@ -57,6 +57,12 @@ const cartSlice = createSlice({
             }
             state.cart.totalPrice = state.cart.totalPrice+newItem.price
             state.cart.qnt = state.cart.qnt+1;
+        },
+        logout (state) {
+            state.cart.userId = null
+            state.cart.qnt = 0
+            state.cart.totalPrice = 0
+            state.cart.products = []
         }
     }
 })
