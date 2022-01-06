@@ -24,8 +24,8 @@ const Navbar = (props) => {
     const [realSearch, setRealSearch] = useState(null);
     const [reqLoading, setReqLoading] = useState(false);
     const user = useSelector((state) => state.user.user);
+    const qnt = useSelector((state) => state.cart.cart.qnt);
     const isAuth = useSelector((state) => state.user.isAuth);
-
     let toggleHundel = (e) => {
         active === "" ? setActive("active") : setActive("");
     };
@@ -160,6 +160,7 @@ const Navbar = (props) => {
                         onClick={() => props.cartClickHunler()}
                     >
                         <FontAwesomeIcon icon={faShoppingBag} />
+                        <span className="cart-count">{qnt}</span>
                     </button>
                     <Link
                         to="/profile/favurite"

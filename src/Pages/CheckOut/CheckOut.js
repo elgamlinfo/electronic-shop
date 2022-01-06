@@ -7,6 +7,7 @@ import {useDispatch} from 'react-redux'
 import {footerActions} from '../../Store/FooterSlice'  
 const CheckOut = () => {
     const dispatch = useDispatch();
+    
     const [loading, setLoading] = useState(true);
 
     useEffect(_=> {
@@ -16,6 +17,7 @@ const CheckOut = () => {
             setLoading(false);
         },500)
     },[dispatch])
+
 
     return (
         <>

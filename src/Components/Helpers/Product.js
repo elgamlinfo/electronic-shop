@@ -106,6 +106,7 @@ const Product = (props) => {
             .then((res) => {
                 console.log(res.data);
                 dispatch(cartActions.addToCart(data));
+                toast.success("product added to cart successfully😊");
             })
             .catch((error) => {
                 console.log(error);
