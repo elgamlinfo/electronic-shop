@@ -7,7 +7,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
 
-
+import slider1 from '../../images/slider.png'
+import slider2 from '../../images/slider-1.png'
+import slider3 from '../../images/slider-2.png'
+import slider4 from '../../images/slider-3.png'
 
 // import Swiper core and required modules
 import SwiperCore, {
@@ -30,12 +33,12 @@ const Header = () => {
                     autoplay={{"delay": 2500, "disableOnInteraction": false }} 
                     mousewheel={true}
                 >
-                    <SwiperSlide><SliderContent /></SwiperSlide>
-                    <SwiperSlide><SliderContent /></SwiperSlide>
-                    <SwiperSlide><SliderContent /></SwiperSlide>
-                    <SwiperSlide><SliderContent /></SwiperSlide>
-                    <SwiperSlide><SliderContent /></SwiperSlide>
-                    <SwiperSlide><SliderContent /></SwiperSlide>
+                    <SwiperSlide style={{backgroundImage: `url(${slider1})`}}><SliderContent /></SwiperSlide>
+                    <SwiperSlide style={{backgroundImage: `url(${slider2})`}}><SliderContent /></SwiperSlide>
+                    <SwiperSlide style={{backgroundImage: `url(${slider3})`}}><SliderContent /></SwiperSlide>
+                    <SwiperSlide style={{backgroundImage: `url(${slider4})`}}><SliderContent /></SwiperSlide>
+                    <SwiperSlide style={{backgroundImage: `url(${slider2})`}}><SliderContent /></SwiperSlide>
+                    <SwiperSlide style={{backgroundImage: `url(${slider3})`}}><SliderContent /></SwiperSlide>
                 </Swiper>
             </div>
         </div>

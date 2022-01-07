@@ -8,7 +8,7 @@
     }
     .container{
         .swiper-container {
-            height: 400px;
+            height: 450px;
             border-radius: 15px;
             position: relative;
             @media only screen and (max-width: $xl) {
@@ -60,7 +60,6 @@
             .swiper-wrapper {
                 .swiper-slide {
                     height: 100%;
-                    background-image: url('../../images/slider.png');
                     background-size:cover;
                     display: flex;
                     justify-content: left;
