@@ -58,6 +58,18 @@ const cartSlice = createSlice({
             state.cart.totalPrice = state.cart.totalPrice+newItem.price
             state.cart.qnt = state.cart.qnt+1;
         },
+        removeOneItem (state, action) {
+            let newItem = action.payload
+            let isExist = state.cart.products.find(product => product.prodId === newItem.prodId)
+            if(isExist.qnt === 1){
+                state.cart.products = state.cart.products.filter(prod => prod.prodId !== newItem.prodId)
+            }else{
+                isExist.qnt--;
+                isExist.totalPrice -= newItem.price
+            }
+            state.cart.totalPrice = state.cart.totalPrice-newItem.price
+            state.cart.qnt = state.cart.qnt-1;
+        },
         logout (state) {
             state.cart.userId = null
             state.cart.qnt = 0

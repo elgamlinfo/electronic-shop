@@ -2,6 +2,7 @@ import React from 'react'
 import AsideProductCart from '../Helpers/AsideProductCart'
 import './aside-cart.scss'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 
 const AsideCart = (props) => {
@@ -17,7 +18,7 @@ const AsideCart = (props) => {
                     }
                 </div>
                 <div className='checkout'>
-                    <button>checkout</button>
+                    <Link onClick={() => props.cartClickHunler()} to="/checkout">checkout</Link>
                 </div>
             </div>
         </div>

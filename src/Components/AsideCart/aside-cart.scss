@@ -68,7 +68,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            button {
+            a {
                 background-color: #fff;
                 color: $base-color;
                 padding: 7px 20px;
@@ -76,6 +76,7 @@
                 border: none;
                 outline: none;
                 cursor: pointer;
+                text-decoration: none;
             }
         }
     }
