@@ -96,7 +96,9 @@ const Product = (props) => {
             });
             postData.products = products;
         }
-
+        dispatch(cartActions.addToCart(data));
+        toast.success("product added to cart successfully😊");
+        
         axios
             .post(`${process.env.REACT_APP_API_LINK_DEV}/cart/add`, postData, {
                 headers: {
@@ -104,9 +106,6 @@ const Product = (props) => {
                 },
             })
             .then((res) => {
-                console.log(res.data);
-                dispatch(cartActions.addToCart(data));
-                toast.success("product added to cart successfully😊");
             })
             .catch((error) => {
                 console.log(error);

@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {getUser} from './Store/UserSlice'
 import { getCart } from './Store/cartSlice';
@@ -45,32 +45,30 @@ const App = () => {
 
     return (
         <Fragment>
-                <BrowserRouter>
-                    <Routes>
-                        <Route   path='/' element={<Index/>}>
-                            <Route  index element={<Home />}/>
-                            <Route  path='signup' element={<SignUp />}/>
-                            <Route  path='login' element={<Login/>}/>
-                            <Route  path='product' element={<ShowProduct />}/>
-                            <Route  path='profile' element={<Profile />}>
-                                <Route  index element={<ProfileContent />}/>
-                                <Route  path="orders" element={<Orders />}/>
-                                <Route  path="favurite" element={<Favurite />}/>
-                            </Route>
-                            <Route  path='products' element={<AllProducts />}/>
-                            <Route  path='checkout' element={<CheckOut/>}/>
+                <Routes>
+                    <Route   path='/' element={<Index/>}>
+                        <Route  index element={<Home />}/>
+                        <Route  path='signup' element={<SignUp />}/>
+                        <Route  path='login' element={<Login/>}/>
+                        <Route  path='product' element={<ShowProduct />}/>
+                        <Route  path='profile' element={<Profile />}>
+                            <Route  index element={<ProfileContent />}/>
+                            <Route  path="orders" element={<Orders />}/>
+                            <Route  path="favurite" element={<Favurite />}/>
                         </Route>
-                        <Route path='/dashboard' element={<Dashboard />}>
-                            <Route  index element={<DashboardContent />}/>
-                            <Route path='/dashboard/users' element={<Users />}/>
-                            <Route path='/dashboard/admins' element={<Admins />}/>
-                            <Route path='/dashboard/category' element={<Category />}/>
-                            <Route path='/dashboard/products' element={<Products />}/>
-                            <Route path='/dashboard/orders' element={<DashboardOrders />}/>
-                        </Route>
-                        <Route path='*' element={<PageNotFound />}/>
-                    </Routes>
-                </BrowserRouter>
+                        <Route  path='products' element={<AllProducts />}/>
+                        <Route  path='checkout' element={<CheckOut/>}/>
+                    </Route>
+                    <Route path='/dashboard' element={<Dashboard />}>
+                        <Route  index element={<DashboardContent />}/>
+                        <Route path='/dashboard/users' element={<Users />}/>
+                        <Route path='/dashboard/admins' element={<Admins />}/>
+                        <Route path='/dashboard/category' element={<Category />}/>
+                        <Route path='/dashboard/products' element={<Products />}/>
+                        <Route path='/dashboard/orders' element={<DashboardOrders />}/>
+                    </Route>
+                    <Route path='*' element={<PageNotFound />}/>
+                </Routes>
         </Fragment>
     )
 }

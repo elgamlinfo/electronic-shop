@@ -70,6 +70,13 @@ const cartSlice = createSlice({
             state.cart.totalPrice = state.cart.totalPrice-newItem.price
             state.cart.qnt = state.cart.qnt-1;
         },
+        removeItem (state, action) {
+            let newItem = action.payload
+            let isExist = state.cart.products.find(product => product.prodId === newItem.prodId)
+            state.cart.totalPrice = state.cart.totalPrice-isExist.totalPrice
+            state.cart.qnt = state.cart.qnt-isExist.qnt;
+            state.cart.products = state.cart.products.filter(prod => prod.prodId !== newItem.prodId)
+        },
         logout (state) {
             state.cart.userId = null
             state.cart.qnt = 0

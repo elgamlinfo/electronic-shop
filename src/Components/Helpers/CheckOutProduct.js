@@ -36,7 +36,7 @@ const CheckOutProduct = (props) => {
             <div className='price_cont'>
                 <p>{formatter.format(props.prod.totalPrice)}</p>
             </div>
-            <button className='delete_btn'>
+            <button className='delete_btn' onClick={() => props.removeItem(data)}>
                 <i className='fas fa-trash'></i>
             </button>
         </div>
