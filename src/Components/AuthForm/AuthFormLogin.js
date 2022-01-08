@@ -54,10 +54,11 @@ const AuthFormLogin = (props) => {
         .then(response => {
             dispatch(userSliceActions.setUserData(response.data.user))
             localStorage.setItem("token", response.data.token)
-            dispatch(getCart())
-            localStorage.setItem("cart", response.data.user.cartId)
-            
             dispatch(userSliceActions.setIsAuth())
+            if(!response.data.user.admin){
+                dispatch(getCart())
+                localStorage.setItem("cart", response.data.user.cartId)
+            }
             setReqLoading(false)
             response.data.user.admin?
             navigate('/dashboard'):
