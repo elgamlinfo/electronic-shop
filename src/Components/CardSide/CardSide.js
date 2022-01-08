@@ -1,5 +1,17 @@
-import React, { useReducer } from "react";
+import React, {  useReducer, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from '../../Store/cartSlice'
+import { toast } from "react-toastify";
+import ReqLoading from '../Loading/ReqLoading'
 import "./cardside.scss";
+import axios from "axios";
+
+let formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+});
+
+
 function cc_format(value) {
     var v = value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
     var matches = v.match(/\d{4,16}/g);
@@ -63,8 +75,31 @@ const CardSide = () => {
         exDate: "",
         cvv: "",
     });
+    const cartDispatch = useDispatch();
+    const cart = useSelector(state => state.cart.cart)
+    const [loading, setLoading] = useState(false)
+    
+    
+    function orderHandler() {
+        setLoading(true)
+        axios.post(`${process.env.REACT_APP_API_LINK_DEV}/order`,null,{
+            headers: {
+                Authorization: `Bearer ${localStorage.token}`,
+            },
+        })
+        .then((res) => {
+            cartDispatch(cartActions.logout())
+            toast.success("your order placed successfully😉");
+            setLoading(false)
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }
+
     return (
         <div className="card_container">
+            <ReqLoading loading={loading} />
             <div className="card_cont">
                 <h2 className="head">Credit Details</h2>
                 <form>
@@ -139,8 +174,8 @@ const CardSide = () => {
                         <p>$3050.00</p>
                     </div>
                 </div>
-                <button className="checkout_btn">
-                    <span>$3050.00</span>
+                <button className="checkout_btn" onClick={orderHandler}>
+                    <span>{formatter.format(cart.totalPrice)}</span>
                     <span>
                         checkout <i className="fas fa-arrow-right"></i>
                     </span>

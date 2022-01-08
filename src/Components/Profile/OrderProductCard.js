@@ -1,19 +1,25 @@
 import React from 'react'
-import ProdImg from '../../images/product.png'
 import './order-product-card.scss'
-const OrderProductCard = () => {
+
+let formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+});
+
+const OrderProductCard = (props) => {
+    let prod = props.prod
     return (
         <div className='order_product_card'>
             <div className='img_cont'>
-                <img src={ProdImg} alt=''/>
+                <img src={prod.image} alt=''/>
             </div>
             <div className='info_cont'>
-                <p className='order_name'>MacBook Pro 16 Inch</p>
+                <p className='order_name' title={prod.title}>{prod.title.slice(0,18)+"..."}</p>
                 <p className='amount'>
-                    1
+                    {prod.qnt}
                     <span>items</span>
                 </p>
-                <p className='total_price'>2,000,00 $</p>
+                <p className='total_price'>{formatter.format(prod.price)}</p>
             </div>
         </div>
     )
