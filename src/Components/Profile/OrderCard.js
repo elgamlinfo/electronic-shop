@@ -30,7 +30,7 @@ const OrderCard = (props) => {
             <div className='order_products_cont'>
                 {order.products.map(prod => <OrderProductCard key={prod.prodId} prod={prod}/>)}
             </div>
-            <button className="cansel_btn">cansel</button>
+            <button className="cansel_btn" onClick={() => props.canselOrder(order._id)}>cansel</button>
         </div>
     )
 }

@@ -12,7 +12,6 @@ const DashboardContent = () => {
     const [admins, setAdmins] = useState(0)
     const [users, setUsers] = useState(0)
     const [products, setProducts] = useState(0)
-    //eslint-disable-next-line
     const [orders, setOrders] = useState(0)
 
     function getAdmins() {
@@ -37,14 +36,22 @@ const DashboardContent = () => {
             },
         })     
     }
+    function getOrders() {
+        return axios.get(`${process.env.REACT_APP_API_LINK_DEV}/order/all`,{
+            headers: {
+                Authorization: `Bearer ${localStorage.token}`
+            },
+        })     
+    }
     
     useEffect(() => {
         setLoading(true)
-        axios.all([getAdmins(), getUsers(),getProducts()])
+        axios.all([getAdmins(), getUsers(),getProducts(),getOrders()])
         .then(axios.spread((...responses) => {
             setAdmins(responses[0].data.length+1)
             setUsers(responses[1].data.length)
             setProducts(responses[2].data.count)
+            setOrders(responses[3].data.length)
             setLoading(false)
         }))
         .catch(error => {

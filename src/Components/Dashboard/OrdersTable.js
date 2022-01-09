@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
-
+import { toast } from "react-toastify";
 
 const OrdersTable = (props) => {
     let order = props.order;
@@ -17,6 +17,7 @@ const OrdersTable = (props) => {
     
     function changeHandler(value) {
         setStatus(value)
+        props.loadingHandler(true)
         let postData= value==="transit"?{transit: true}:{completed: true};
         axios
             .patch(`${process.env.REACT_APP_API_LINK_DEV}/order/${order._id}`, postData,{
@@ -26,6 +27,8 @@ const OrdersTable = (props) => {
             })
             .then((res) => {
                 props.dataChangeHandler(res.data)
+                props.loadingHandler(false)
+                toast.success('Done😉')
             })
             .catch((error) => {
                 console.log(error);

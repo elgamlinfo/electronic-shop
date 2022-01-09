@@ -61,8 +61,13 @@
                     }
                     textarea{
                         padding-top: 5px;
-                        min-height: 35px;
+                        min-height: 150px;
                         white-space: nowrap;
+                    }
+                }
+                &:last-of-type{
+                    .input_group {
+                        width: 100%;
                     }
                 }
             }
