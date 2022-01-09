@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./navbar.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ToastContainer, toast } from "react-toastify";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faHeart,
     faSearch,

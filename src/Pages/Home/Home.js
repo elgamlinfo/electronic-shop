@@ -34,11 +34,11 @@ const Home = () => {
                 <div>
                     <Header />
                     <Categories />
-                    <ShowProducts title='Offers & Top Selling' data={data}/>
+                    <ShowProducts title='Offers & Top Selling' link="/products?search=" data={data}/>
                     <Ads />
-                    <ShowProducts title='Mobiles' data={data.filter(prod => prod.category === "mobile")}/>
-                    <ShowProducts title='Mouses'data={data.filter(prod => prod.category === "mouses")}/>
-                    <ShowProducts title='Keyboards'data={data.filter(prod => prod.category === "keyboard")}/>
+                    <ShowProducts title='Mobiles' link="/products?search=mobile" data={data.filter(prod => prod.category === "mobile")}/>
+                    <ShowProducts title='Mouses' link="/products?search=mouse" data={data.filter(prod => prod.category === "mouses")}/>
+                    <ShowProducts title='Keyboards' link="/products?search=keyboard" data={data.filter(prod => prod.category === "keyboard")}/>
                     <Ads />
                 </div>
             }

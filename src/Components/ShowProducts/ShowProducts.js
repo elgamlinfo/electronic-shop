@@ -27,7 +27,7 @@ const ShowProducts = (props) => {
         onMouseLeave={() => swiperRef.current.swiper.autoplay.start()}
         >
             <div className='container' >
-                <Title title={props.title}/>
+                <Title title={props.title} link={props.link}/>
                 <Swiper 
                     ref={swiperRef} 
                     slidesPerView={4}

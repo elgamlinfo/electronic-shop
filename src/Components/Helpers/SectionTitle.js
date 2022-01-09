@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './helpers.scss'
 const SectionTitle = (props) => {
     return (
         <div className='title'>
             <h3>{props.title}</h3>
-            <p>show more</p>
+            <Link to={`${props.link}`}>show more</Link>
         </div>
     )
 }

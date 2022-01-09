@@ -239,9 +239,10 @@
         color: $base-color;
         text-transform: capitalize;
     }
-    p {
+    a {
         color: $yel-color;
         cursor: pointer;
+        text-decoration: none;
     }
 }
 ////*******end title******///////
