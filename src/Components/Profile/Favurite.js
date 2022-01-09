@@ -7,7 +7,7 @@ import Loading from '../Loading/Loading'
 
 
 const Favurite = () => {
-    const [data, setData] = useState(null)
+    const [data, setData] = useState([])
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
@@ -36,7 +36,7 @@ const Favurite = () => {
 
     return (
         <>
-            {!data?<Loading loading={loading}/>:
+            {loading?<Loading loading={loading}/>:
             <div className='favourite_content'>
                 <h2 className='titl'>Favourite</h2>
                 <div className='favourite_card_wrapper'>
