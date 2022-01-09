@@ -13,6 +13,7 @@ import Profile from './Pages/Profile/Profile'
 import ProfileContent from './Components/Profile/ProfileContent'
 import Orders from './Components/Profile/Orders'
 import Favurite from './Components/Profile/Favurite'
+import HomeCategory from './Pages/Category/HomeCategory'
 import PageNotFound from './Pages/PageNotFound/PageNotFound';
 import Index from './Pages/Index/Index';
 import Dashboard from './Pages/Dashboard/Dashboard';
@@ -22,6 +23,7 @@ import Admins from './Components/Dashboard/Admins';
 import Products from './Components/Dashboard/Products';
 import Category from './Components/Dashboard/Category';
 import DashboardOrders from './Components/Dashboard/Orders';
+
 
 const App = () => {
     const dispatch = useDispatch()
@@ -58,6 +60,7 @@ const App = () => {
                         </Route>
                         <Route  path='products' element={<AllProducts />}/>
                         <Route  path='checkout' element={<CheckOut/>}/>
+                        <Route  path='/categories' element={<HomeCategory/>}/>
                     </Route>
                     <Route path='/dashboard' element={<Dashboard />}>
                         <Route  index element={<DashboardContent />}/>

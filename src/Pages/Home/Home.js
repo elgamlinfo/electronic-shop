@@ -13,15 +13,23 @@ import Ads from '../../Components/Ads/Ads'
 const Home = () => {
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(true);
-    const [data, setData] = useState(null)
+    const [data, setData] = useState([])
+    const [category, setCategory] = useState([] )
+    function getProdducts() {
+        return axios.get(`${process.env.REACT_APP_API_LINK_DEV}/product/all`)
+    }
+    function getCategories() {
+        return axios.get(`${process.env.REACT_APP_API_LINK_DEV}/category`)
+    }
 
     useEffect(_=> {
         setLoading(true);
-        axios.get(`${process.env.REACT_APP_API_LINK_DEV}/product/all`)
-        .then(res => {
-            setData(res.data)
+        axios.all([getProdducts(), getCategories()])
+        .then(axios.spread((...responses) => {
+            setData(responses[0].data)
+            setCategory(responses[1].data.slice(0,6))
             setLoading(false)
-        })
+        }))
         .catch(error  => {
             console.log(error);
         })
@@ -30,10 +38,10 @@ const Home = () => {
     
     return (
         <Fragment>
-            {!data? <Loading loading ={loading}/>:
+            {loading? <Loading loading ={loading}/>:
                 <div>
                     <Header />
-                    <Categories />
+                    <Categories data={category}/>
                     <ShowProducts title='Offers & Top Selling' link="/products?search=" data={data}/>
                     <Ads />
                     <ShowProducts title='Mobiles' link="/products?search=mobile" data={data.filter(prod => prod.category === "mobile")}/>
